@@ -18,7 +18,10 @@ class BDReservasRestauranteOpenHelper(
      * @param db The database.
      */
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        requireNotNull(db)
+
+        TabelaBDClientes(db).cria()
+        TabelaBDReservas(db).cria()
     }
 
     /**
