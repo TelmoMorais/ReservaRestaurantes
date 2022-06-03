@@ -3,9 +3,9 @@ package com.example.reservarestaurantes
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
-class TabelaBDReservas (val db: SQLiteDatabase) {
-    fun cria(){
-        db.execSQL("CREATE TABLE $NOMETABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_DATARESERVA DATE NOT NULL, $CAMPO_TIPOREFEICAO TEXT NOT NULL, " +
+class TabelaBDReservas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA)  {
+    override fun cria(){
+        db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_DATARESERVA DATE NOT NULL, $CAMPO_TIPOREFEICAO TEXT NOT NULL, " +
                 "$CAMPO_NRPESSOAS INTEGER NOT NULL, $CAMPO_CLIENTES_ID INTEGER NOT NULL, FOREIGN KEY ($CAMPO_CLIENTES_ID) REFERENCES ${TabelaBDClientes.NOMETABELA}(${BaseColumns._ID}) ON DELETE RESTRICT)")
     }
 
