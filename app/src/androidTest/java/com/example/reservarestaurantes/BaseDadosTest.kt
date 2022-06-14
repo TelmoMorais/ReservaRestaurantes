@@ -63,4 +63,16 @@ class BaseDadosTest {
         db.close()
     }
 
+
+    @Test
+    fun consegueInserirRefeicao(){
+
+        val db = getWritableDatabase()
+
+        val refeicao = Refeicao("Almoço")
+
+
+        db.close()
+    }
+
 }
