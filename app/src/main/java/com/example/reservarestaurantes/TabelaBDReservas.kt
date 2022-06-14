@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 class TabelaBDReservas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA)  {
     override fun cria(){
         db.execSQL("CREATE TABLE $nome(${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "$CAMPO_DATARESERVA DATE NOT NULL, " +
+                "$CAMPO_DATARESERVA INTEGER NOT NULL, " +
                 " $CAMPO_NRPESSOAS INTEGER NOT NULL, " +
                 "$CAMPO_CLIENTES_ID INTEGER NOT NULL," +
                 " $CAMPO_MESAS_ID INTEGER NOT NULL,  " +

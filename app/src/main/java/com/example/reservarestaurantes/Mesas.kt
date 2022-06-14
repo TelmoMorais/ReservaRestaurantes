@@ -2,7 +2,7 @@ package com.example.reservarestaurantes
 
 import android.content.ContentValues
 
-data class Mesas (var id: Long, var numero_mesa: Long, var quantidade_lugares: Long) {
+data class Mesas (var id: Long, var numero_mesa: Int, var quantidade_lugares: Int) {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
 
