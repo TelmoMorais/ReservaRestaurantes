@@ -52,4 +52,15 @@ class BaseDadosTest {
         db.close()
     }
 
+    @Test
+    fun consegueInserirMesas(){
+
+        val db = getWritableDatabase()
+
+        val mesa = Mesas(1, 4)
+
+
+        db.close()
+    }
+
 }
