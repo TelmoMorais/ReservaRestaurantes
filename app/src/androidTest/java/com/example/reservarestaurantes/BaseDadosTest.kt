@@ -1,6 +1,7 @@
 package com.example.reservarestaurantes
 
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -90,7 +91,7 @@ class BaseDadosTest {
         db.close()
     }
 
-    
+
     @Test
     fun consegueInserirReserva(){
 
@@ -115,5 +116,28 @@ class BaseDadosTest {
 
     }
 
+    @Test
+    fun consegueAlterarCliente(){
+        val db = getWritableDatabase()
+
+        val cliente = Clientes("Teste", "123456789", "123456789", "Teste")
+        insereCliente(db, cliente)
+
+        cliente.nome = "Jose"
+        cliente.contato_telefonico = "92497507"
+        cliente.nif = "987654321"
+        cliente.morada = "Rua"
+
+        val registosAlterados = TabelaBDClientes(db).update(
+            cliente.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${cliente.id}"))
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+    }
+
+    
 
 }
