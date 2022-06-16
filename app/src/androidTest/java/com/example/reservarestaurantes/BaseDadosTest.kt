@@ -306,4 +306,81 @@ class BaseDadosTest {
 
     }
 
+    @Test
+    fun consegueLerClientes(){
+        val db = getWritableDatabase()
+
+        val cliente = Clientes("João", "924563987", "196348529", "Av. Dr. Francisco Sá Carneiro 50, 6300-559 Guarda")
+        insereCliente(db, cliente)
+
+        val cursor = TabelaBDClientes(db).query(
+            TabelaBDClientes.TODOS_CAMPOS_CIENTES,
+            "${BaseColumns._ID}=?",
+            arrayOf("${cliente.id}"),
+            null,
+            null,
+            null
+        )
+
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val clienteBD = Clientes.fromCursor(cursor)
+
+        assertEquals(cliente, clienteBD)
+
+    }
+
+
+    @Test
+    fun consegueLerMesas(){
+        val db = getWritableDatabase()
+
+        val mesa = Mesas(8, 10)
+        insereMesa(db, mesa)
+
+        val cursor = TabelaBDMesas(db).query(
+            TabelaBDMesas.TODOS_CAMPOS_MESAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${mesa.id}"),
+            null,
+            null,
+            null
+        )
+
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val mesaBD = Mesas.fromCursor(cursor)
+
+        assertEquals(mesa, mesaBD)
+
+    }
+
+
+    @Test
+    fun consegueLerRefeicao(){
+        val db = getWritableDatabase()
+
+        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db, refeicao)
+
+        val cursor = TabelaBDRefeicao(db).query(
+            TabelaBDRefeicao.TODOS_CAMPOS_REFEICAO,
+            "${BaseColumns._ID}=?",
+            arrayOf("${refeicao.id}"),
+            null,
+            null,
+            null
+        )
+
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val refeicaoBD = Refeicao.fromCursor(cursor)
+
+        assertEquals(refeicao, refeicaoBD)
+
+    }
+
 }

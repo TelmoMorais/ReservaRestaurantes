@@ -13,5 +13,7 @@ class TabelaBDRefeicao (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
         const val NOMETABELA = "Refeicao"
         const val CAMPO_TIPO_REFEICAO = "Tipo_Refeicao"
 
+        val TODOS_CAMPOS_REFEICAO = arrayOf(BaseColumns._ID, CAMPO_TIPO_REFEICAO)
+
     }
 }

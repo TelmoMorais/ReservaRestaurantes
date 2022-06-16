@@ -15,5 +15,7 @@ class TabelaBDClientes (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
         const val CAMPO_NIF = "NIF"
         const val CAMPO_MORADA = "Morada"
 
+        val TODOS_CAMPOS_CIENTES = arrayOf(BaseColumns._ID,CAMPO_NOME,CAMPO_TELEFONE,CAMPO_NIF,CAMPO_MORADA)
+
     }
 }

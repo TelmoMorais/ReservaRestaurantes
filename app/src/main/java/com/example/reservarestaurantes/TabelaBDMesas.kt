@@ -14,6 +14,7 @@ class TabelaBDMesas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
         const val CAMPO_NUMERO_MESA = "Numero_Mesa"
         const val CAMPO_QUANTIDADE_LUGARES = "Quantidade_Lugares"
 
+        val TODOS_CAMPOS_MESAS = arrayOf(BaseColumns._ID, CAMPO_NUMERO_MESA, CAMPO_QUANTIDADE_LUGARES)
     }
 
 }
