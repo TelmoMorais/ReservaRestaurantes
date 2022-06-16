@@ -138,6 +138,24 @@ class BaseDadosTest {
         db.close()
     }
 
-    
+    @Test
+    fun consegueAlterarMesa(){
+        val db = getWritableDatabase()
+
+        val mesa = Mesas(8, 10)
+        insereMesa(db, mesa)
+
+        mesa.numero_mesa = 5
+        mesa.quantidade_lugares = 4
+
+        val registosAlterados = TabelaBDMesas(db).update(
+            mesa.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${mesa.id}"))
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+    }
 
 }
