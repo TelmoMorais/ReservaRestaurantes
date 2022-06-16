@@ -25,6 +25,21 @@ class BaseDadosTest {
         return openHelper.writableDatabase
     }
 
+    private fun insereCliente(db: SQLiteDatabase, cliente: Clientes){
+        cliente.id = TabelaBDClientes(db).insert(cliente.toContentValues())
+        assertEquals(1, cliente.id)
+    }
+
+    private fun insereMesa(db: SQLiteDatabase, mesa: Mesas){
+        mesa.id = TabelaBDMesas(db).insert(mesa.toContentValues())
+        assertEquals(1,mesa.id)
+    }
+
+    private fun insereRefeicao(db: SQLiteDatabase, refeicao: Refeicao){
+        refeicao.id = TabelaBDRefeicao(db).insert(refeicao.toContentValues())
+        assertEquals(1, refeicao.id)
+    }
+
 
     @Before
     fun apagaBaseDados() {
@@ -41,13 +56,13 @@ class BaseDadosTest {
         db.close()
     }
 
+    
     @Test
     fun consegueInserirClientes(){
 
         val db = getWritableDatabase()
 
-        val cliente = Clientes("Jose", "924288452", "251099636", "Av. Dr. Francisco Sá Carneiro 50, 6300-559 Guarda")
-
+        insereCliente(db, Clientes("Manuel","271297513","186349563","Rua de São Vicente 10, 6300-510 Guarda"))
 
         db.close()
     }
@@ -57,7 +72,7 @@ class BaseDadosTest {
 
         val db = getWritableDatabase()
 
-        val mesa = Mesas(1, 4)
+       insereMesa(db, Mesas(2,5))
 
 
         db.close()
@@ -69,10 +84,36 @@ class BaseDadosTest {
 
         val db = getWritableDatabase()
 
-        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db , Refeicao("Jantar",-1))
 
 
         db.close()
     }
+
+    
+    @Test
+    fun consegueInserirReserva(){
+
+        val db = getWritableDatabase()
+
+        val cliente = Clientes("João", "924563987", "196348529", "Av. Dr. Francisco Sá Carneiro 50, 6300-559 Guarda", -1)
+        insereCliente(db, cliente)
+
+        val mesa = Mesas(5, 4)
+        insereMesa(db, mesa)
+
+        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db, refeicao)
+
+        val reserva = Reservas(21062022, 5, cliente.id , mesa.id, refeicao.id)
+        reserva.id = TabelaBDReservas(db).insert(reserva.toContentValues())
+
+
+        assertNotEquals(-1,reserva.id)
+
+        db.close()
+
+    }
+
 
 }

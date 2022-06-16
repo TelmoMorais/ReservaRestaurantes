@@ -3,7 +3,7 @@ package com.example.reservarestaurantes
 import android.content.ContentValues
 import java.util.*
 
-data class Reservas (var id:Long , var data_reserva:Int, var numero_pessoas:Int, var clientes_id:Long, var mesas_id:Long, var refeicao_id:Long) {
+data class Reservas (var data_reserva:Int, var numero_pessoas:Int, var clientes_id:Long, var mesas_id:Long, var refeicao_id:Long, var id:Long = -1) {
 
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
