@@ -228,6 +228,23 @@ class BaseDadosTest {
 
      */
 
+    @Test
+    fun consegueEliminarCliente(){
+        val db = getWritableDatabase()
+
+        val cliente = Clientes("Teste", "123456789", "123456789", "Teste")
+        insereCliente(db, cliente)
+
+
+        val registosEliminados = TabelaBDClientes(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${cliente.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
     
 
 }
