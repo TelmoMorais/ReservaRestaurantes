@@ -85,7 +85,7 @@ class BaseDadosTest {
 
         val db = getWritableDatabase()
 
-        insereRefeicao(db , Refeicao("Jantar",-1))
+        insereRefeicao(db , Refeicao("Jantar"))
 
 
         db.close()
@@ -152,6 +152,25 @@ class BaseDadosTest {
             mesa.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf("${mesa.id}"))
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueAlterarRefeicao(){
+        val db = getWritableDatabase()
+
+        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db, refeicao)
+
+        refeicao.tipo_refeicao = "Jantar"
+
+        val registosAlterados = TabelaBDRefeicao(db).update(
+            refeicao.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${refeicao.id}"))
 
         assertEquals(1, registosAlterados)
 
