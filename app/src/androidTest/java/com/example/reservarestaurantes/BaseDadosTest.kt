@@ -41,6 +41,11 @@ class BaseDadosTest {
         assertEquals(1, refeicao.id)
     }
 
+    private fun insereReserva(db: SQLiteDatabase, reservas: Reservas){
+        reservas.id = TabelaBDReservas(db).insert(reservas.toContentValues())
+        assertNotEquals(-1, reservas.id)
+    }
+
 
     @Before
     fun apagaBaseDados() {
@@ -57,7 +62,7 @@ class BaseDadosTest {
         db.close()
     }
 
-    
+
     @Test
     fun consegueInserirClientes(){
 
@@ -176,5 +181,53 @@ class BaseDadosTest {
 
         db.close()
     }
+
+    /*
+    @Test
+    fun consegueAlterarReservas(){
+        val db = getWritableDatabase()
+
+        val cliente1 = Clientes("teste", "183695236", "563282198", "Rua 1")
+        insereCliente(db, cliente1)
+
+        val cliente2 = Clientes("João", "924563987", "196348529", "Av. Dr. Francisco Sá Carneiro 50, 6300-559 Guarda")
+        insereCliente(db, cliente2)
+
+        val mesa1 = Mesas(1,2)
+        insereMesa(db, mesa1)
+
+        val mesa2 = Mesas(2,4)
+        insereMesa(db, mesa2)
+
+        val refeicao1 = Refeicao("Almoço")
+        insereRefeicao(db, refeicao1)
+
+        val refeicao2 = Refeicao("Jantar")
+        insereRefeicao(db, refeicao2)
+
+        val reserva = Reservas(21062022, 5, cliente1.id , mesa1.id, refeicao1.id)
+        insereReserva(db, reserva)
+
+        reserva.data_reserva = 10072022
+        reserva.numero_pessoas = 10
+        reserva.clientes_id = cliente2.id
+        reserva.mesas_id = mesa2.id
+        reserva.refeicao_id = refeicao2.id
+
+
+        val registosAlterados = TabelaBDReservas(db).update(
+            reserva.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${reserva.id}"))
+
+        assertEquals(1, registosAlterados)
+
+        db.close()
+
+    }
+
+     */
+
+    
 
 }
