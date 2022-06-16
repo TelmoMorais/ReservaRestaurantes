@@ -263,6 +263,22 @@ class BaseDadosTest {
     }
 
 
+    @Test
+    fun consegueEliminarRefeicao(){
+        val db = getWritableDatabase()
+
+        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db, refeicao)
+
+        val registosEliminados = TabelaBDRefeicao(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${refeicao.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
     
 
 }
