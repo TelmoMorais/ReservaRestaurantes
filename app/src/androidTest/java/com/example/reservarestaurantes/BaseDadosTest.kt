@@ -279,6 +279,31 @@ class BaseDadosTest {
         db.close()
     }
 
-    
+    @Test
+    fun consegueEliminarReserva(){
+
+        val db = getWritableDatabase()
+
+        val cliente = Clientes("João", "924563987", "196348529", "Av. Dr. Francisco Sá Carneiro 50, 6300-559 Guarda")
+        insereCliente(db, cliente)
+
+        val mesa = Mesas(5, 4)
+        insereMesa(db, mesa)
+
+        val refeicao = Refeicao("Almoço")
+        insereRefeicao(db, refeicao)
+
+        val reserva = Reservas(21062022, 5, cliente.id , mesa.id, refeicao.id)
+        insereReserva(db, reserva)
+
+        val registosEliminados = TabelaBDReservas(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${refeicao.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+
+    }
 
 }
