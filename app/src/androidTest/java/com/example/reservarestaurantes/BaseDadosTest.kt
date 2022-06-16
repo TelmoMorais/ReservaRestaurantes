@@ -245,6 +245,24 @@ class BaseDadosTest {
         db.close()
     }
 
+    @Test
+    fun consegueEliminarMesa(){
+        val db = getWritableDatabase()
+
+        val mesa = Mesas(8, 10)
+        insereMesa(db, mesa)
+
+
+        val registosEliminados = TabelaBDMesas(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${mesa.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+
     
 
 }
