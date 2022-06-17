@@ -24,5 +24,7 @@ class TabelaBDReservas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA)  {
         const val CAMPO_MESAS_ID = "Mesas_Id"
         const val CAMPO_REFEICAO_ID = "Refeicao_Id"
 
+        val TODOS_CAMPOS_RESERVA = arrayOf(BaseColumns._ID, CAMPO_DATARESERVA, CAMPO_NRPESSOAS, CAMPO_CLIENTES_ID, CAMPO_MESAS_ID, CAMPO_REFEICAO_ID)
+
     }
 }

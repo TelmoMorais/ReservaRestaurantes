@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Reservas (var data_reserva:Int, var numero_pessoas:Int, var clientes_id:Long, var mesas_id:Long, var refeicao_id:Long, var id:Long = -1) {
+data class Reservas (var data_reserva:Long, var numero_pessoas:Int, var clientes_id:Long, var mesas_id:Long, var refeicao_id:Long, var id:Long = -1) {
 
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
@@ -29,7 +29,7 @@ data class Reservas (var data_reserva:Int, var numero_pessoas:Int, var clientes_
             val posRefeicaoId = cursor.getColumnIndex(TabelaBDReservas.CAMPO_REFEICAO_ID)
 
             val id= cursor.getLong(posId)
-            val dataRes = cursor.getInt(posDataRes)
+            val dataRes = cursor.getLong(posDataRes)
             val nrPess = cursor.getInt(posNrPess)
             val clienteId = cursor.getLong(posClienteId)
             val mesaId = cursor.getLong(posMesaId)
