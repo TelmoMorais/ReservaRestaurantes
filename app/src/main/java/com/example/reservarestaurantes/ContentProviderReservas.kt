@@ -6,8 +6,13 @@ import android.database.Cursor
 import android.net.Uri
 
 class ContentProviderReservas : ContentProvider() {
+
+    var db : BDReservasRestauranteOpenHelper? = null
+
     override fun onCreate(): Boolean {
-        TODO("Not yet implemented")
+        db = BDReservasRestauranteOpenHelper(context)
+
+        return true
     }
 
     override fun query(
