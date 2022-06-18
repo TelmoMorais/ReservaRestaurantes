@@ -30,7 +30,7 @@ class ContentProviderReservas : ContentProvider() {
         val colunas = projection as Array<String>
 
         val argsSelecao = selectionArgs as Array<String>
-        
+
         val id = uri.lastPathSegment
 
         val cursor = when (getUriMatcher().match(uri)) {
@@ -65,8 +65,24 @@ class ContentProviderReservas : ContentProvider() {
         }
 
 
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
-        TODO("Not yet implemented")
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+        val db = dbOpenHelper!!.writableDatabase
+
+        requireNotNull(values)
+
+        val id = when (getUriMatcher().match(uri)) {
+            URI_RESERVAS -> TabelaBDReservas(db).insert(values)
+            URI_CLIENTES -> TabelaBDClientes(db).insert(values)
+            URI_MESAS -> TabelaBDMesas(db).insert(values)
+            URI_REFEICOES -> TabelaBDRefeicao(db).insert(values)
+            else -> -1
+        }
+
+        db.close()
+
+        if (id == -1L) return null
+
+        return Uri.withAppendedPath(uri, "$id")
     }
 
     override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
