@@ -85,8 +85,23 @@ class ContentProviderReservas : ContentProvider() {
         return Uri.withAppendedPath(uri, "$id")
     }
 
-    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
+        val db = dbOpenHelper!!.writableDatabase
+
+        val id = uri.lastPathSegment
+
+        val registosApagados = when (getUriMatcher().match(uri)) {
+            URI_RESERVA_ESPECIFICA -> TabelaBDReservas(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_CLIENTE_ESPECIFICO -> TabelaBDClientes(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_MESA_ESPECIFICA -> TabelaBDMesas(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_REFEICAO_ESPECIFICA -> TabelaBDRefeicao(db).delete("${BaseColumns._ID}=?", arrayOf("${id}"))
+
+            else -> 0
+        }
+
+        db.close()
+
+        return registosApagados
     }
 
     override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
