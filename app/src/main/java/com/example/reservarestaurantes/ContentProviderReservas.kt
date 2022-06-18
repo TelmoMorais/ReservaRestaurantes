@@ -104,8 +104,24 @@ class ContentProviderReservas : ContentProvider() {
         return registosApagados
     }
 
-    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?): Int {
+        requireNotNull(values)
+
+        val db = dbOpenHelper!!.writableDatabase
+
+        val id = uri.lastPathSegment
+
+        val registosAlterados = when (getUriMatcher().match(uri)) {
+            URI_RESERVA_ESPECIFICA ->TabelaBDReservas(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_CLIENTE_ESPECIFICO ->TabelaBDClientes(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_MESA_ESPECIFICA ->TabelaBDMesas(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
+            URI_REFEICAO_ESPECIFICA ->TabelaBDRefeicao(db).update(values, "${BaseColumns._ID}=?", arrayOf("${id}"))
+            else -> 0
+        }
+
+        db.close()
+
+        return registosAlterados
     }
 
     companion object{
