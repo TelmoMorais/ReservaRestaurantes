@@ -5,25 +5,50 @@ import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
+import android.provider.BaseColumns
 
 class ContentProviderReservas : ContentProvider() {
 
-    var db : BDReservasRestauranteOpenHelper? = null
+    var dbOpenHelper : BDReservasRestauranteOpenHelper? = null
 
     override fun onCreate(): Boolean {
-        db = BDReservasRestauranteOpenHelper(context)
+        dbOpenHelper = BDReservasRestauranteOpenHelper(context)
 
         return true
     }
 
     override fun query(
-        p0: Uri,
-        p1: Array<out String>?,
-        p2: String?,
-        p3: Array<out String>?,
-        p4: String?
+        uri: Uri,
+        projection: Array<out String>?,
+        selection: String?,
+        selectionArgs: Array<out String>?,
+        sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val db = dbOpenHelper!!.readableDatabase
+
+        requireNotNull(projection)
+        val colunas = projection as Array<String>
+
+        val argsSelecao = selectionArgs as Array<String>
+        
+        val id = uri.lastPathSegment
+
+        val cursor = when (getUriMatcher().match(uri)) {
+            URI_RESERVAS -> TabelaBDReservas(db).query(colunas, selection, argsSelecao,null, null, sortOrder)
+            URI_CLIENTES -> TabelaBDClientes(db).query(colunas, selection, argsSelecao,null, null, sortOrder)
+            URI_MESAS -> TabelaBDMesas(db).query(colunas, selection, argsSelecao,null, null, sortOrder)
+            URI_REFEICOES -> TabelaBDRefeicao(db).query(colunas, selection, argsSelecao,null, null, sortOrder)
+            URI_RESERVA_ESPECIFICA -> TabelaBDReservas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_CLIENTE_ESPECIFICO -> TabelaBDClientes(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_MESA_ESPECIFICA -> TabelaBDMesas(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+            URI_REFEICAO_ESPECIFICA -> TabelaBDRefeicao(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("${id}"), null, null, null)
+
+            else -> null
+        }
+
+        db.close()
+
+        return cursor
     }
 
     override fun getType(uri: Uri): String? =
