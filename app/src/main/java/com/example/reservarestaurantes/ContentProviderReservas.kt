@@ -26,9 +26,19 @@ class ContentProviderReservas : ContentProvider() {
         TODO("Not yet implemented")
     }
 
-    override fun getType(p0: Uri): String? {
-        TODO("Not yet implemented")
-    }
+    override fun getType(uri: Uri): String? =
+        when (getUriMatcher().match(uri)) {
+            URI_RESERVAS -> "$MULTIPLOS_REGISTOS/${TabelaBDReservas.NOMETABELA}"
+            URI_CLIENTES -> "$MULTIPLOS_REGISTOS/${TabelaBDClientes.NOMETABELA}"
+            URI_MESAS -> "$MULTIPLOS_REGISTOS/${TabelaBDMesas.NOMETABELA}"
+            URI_REFEICOES -> "$MULTIPLOS_REGISTOS/${TabelaBDRefeicao.NOMETABELA}"
+            URI_RESERVA_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDReservas.NOMETABELA}"
+            URI_CLIENTE_ESPECIFICO -> "$UNICO_REGISTO/${TabelaBDClientes.NOMETABELA}"
+            URI_MESA_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDMesas.NOMETABELA}"
+            URI_REFEICAO_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDRefeicao.NOMETABELA}"
+            else -> null
+        }
+
 
     override fun insert(p0: Uri, p1: ContentValues?): Uri? {
         TODO("Not yet implemented")
@@ -53,6 +63,10 @@ class ContentProviderReservas : ContentProvider() {
         const val URI_REFEICAO_ESPECIFICA = 301
         const val URI_RESERVAS = 400
         const val URI_RESERVA_ESPECIFICA = 401
+
+
+        const val UNICO_REGISTO = "vnd.android.cursor.item"
+        const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
 
         fun getUriMatcher() : UriMatcher {
