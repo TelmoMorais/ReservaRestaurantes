@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuPrincipalFragment">
+
+    <TextView
+        android:id="@+id/textViewMenuPricipal"
+        android:layout_width="405dp"
+        android:layout_height="38dp"
+        android:background="@color/white"
+        android:text="Reservas Restaurante"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonMenuReservas"
+        android:layout_width="370dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="216dp"
+        android:text="Reservas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMenuPricipal" />
+
+    <Button
+        android:id="@+id/buttonMenuClientes"
+        android:layout_width="180dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:text="Clientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMenuReservas" />
+
+    <Button
+        android:id="@+id/buttonMenuMesas"
+        android:layout_width="180dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:text="Mesas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMenuReservas" />
+</androidx.constraintlayout.widget.ConstraintLayout>
