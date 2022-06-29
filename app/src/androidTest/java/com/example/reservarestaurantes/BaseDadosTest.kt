@@ -28,17 +28,17 @@ class BaseDadosTest {
 
     private fun insereCliente(db: SQLiteDatabase, cliente: Clientes){
         cliente.id = TabelaBDClientes(db).insert(cliente.toContentValues())
-        assertEquals(1, cliente.id)
+        assertNotEquals(-1, cliente.id)
     }
 
     private fun insereMesa(db: SQLiteDatabase, mesa: Mesas){
         mesa.id = TabelaBDMesas(db).insert(mesa.toContentValues())
-        assertEquals(1,mesa.id)
+        assertNotEquals(-1,mesa.id)
     }
 
     private fun insereRefeicao(db: SQLiteDatabase, refeicao: Refeicao){
         refeicao.id = TabelaBDRefeicao(db).insert(refeicao.toContentValues())
-        assertEquals(1, refeicao.id)
+        assertNotEquals(-1, refeicao.id)
     }
 
     private fun insereReserva(db: SQLiteDatabase, reservas: Reservas){
@@ -182,7 +182,7 @@ class BaseDadosTest {
         db.close()
     }
 
-    /*
+
     @Test
     fun consegueAlterarReservas(){
         val db = getWritableDatabase()
@@ -226,7 +226,7 @@ class BaseDadosTest {
 
     }
 
-     */
+
 
     @Test
     fun consegueEliminarCliente(){
