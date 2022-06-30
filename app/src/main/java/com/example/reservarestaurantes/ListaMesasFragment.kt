@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.reservarestaurantes.databinding.FragmentListaMesasBinding
 
 class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaMesasBinding? = null
+    private var adapterMesas: AdapterMesas? = null
 
     private val binding get() = _binding!!
 
@@ -31,6 +33,10 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         super.onViewCreated(view, savedInstanceState)
 
         LoaderManager.getInstance(this).initLoader(ListaMesasFragment.ID_LOADER_MESAS, null, this)
+
+        adapterMesas = AdapterMesas()
+        binding.recyclerViewMesas.adapter = adapterMesas
+        binding.recyclerViewMesas.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {
