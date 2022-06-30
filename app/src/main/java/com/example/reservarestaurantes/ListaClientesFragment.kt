@@ -35,7 +35,7 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_CLIENTES, null, this)
 
-        adapterClientes = AdapterClientes()
+        adapterClientes = AdapterClientes(this)
         binding.recyclerViewClientes.adapter = adapterClientes
         binding.recyclerViewClientes.layoutManager = LinearLayoutManager(requireContext())
     }
