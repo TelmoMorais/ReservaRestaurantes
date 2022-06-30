@@ -34,7 +34,7 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_RESERVAS, null, this)
 
-        adapterReservas = AdapterReservas()
+        adapterReservas = AdapterReservas(this)
         binding.recyclerViewReservas.adapter = adapterReservas
         binding.recyclerViewReservas.layoutManager = LinearLayoutManager(requireContext())
     }

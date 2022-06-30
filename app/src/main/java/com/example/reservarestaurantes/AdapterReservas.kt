@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterReservas : RecyclerView.Adapter<AdapterReservas.ViewHolderReserva>() {
+class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapter<AdapterReservas.ViewHolderReserva>() {
 
     var cursor: Cursor? = null
     get() = field
@@ -44,7 +44,8 @@ class AdapterReservas : RecyclerView.Adapter<AdapterReservas.ViewHolderReserva>(
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderReserva {
-        TODO("Not yet implemented")
+        val itemReserva = fragment.layoutInflater.inflate(R.layout.item_reserva,parent, false)
+        return ViewHolderReserva(itemReserva)
     }
 
     /**
