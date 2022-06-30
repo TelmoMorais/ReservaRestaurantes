@@ -7,6 +7,11 @@
     <string name="lista_mesas">Mesas</string>
     <string name="lista_reservas">Reservas</string>
     <string name="botaoVoltarReservas">Voltar</string>
+    <string name="ItemClienteTitulo">Dados Cliente</string>
+    <string name="ItemClienteNome">José dos Santos Silva</string>
+    <string name="ItemClienteTelefone">963145236</string>
+    <string name="ItemClienteNif">196325237</string>
+    <string name="ItemClienteMorada">Rua de São Vicente 10, 6300-510 Guarda</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
