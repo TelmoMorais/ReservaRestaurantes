@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterMesas : RecyclerView.Adapter<AdapterMesas.ViewHolderMesa>() {
+class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<AdapterMesas.ViewHolderMesa>() {
 
     var cursor: Cursor? = null
         get() = field
@@ -44,7 +44,8 @@ class AdapterMesas : RecyclerView.Adapter<AdapterMesas.ViewHolderMesa>() {
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMesa {
-        TODO("Not yet implemented")
+        val itemMesa = fragment.layoutInflater.inflate(R.layout.item_mesa, parent, false)
+        return AdapterMesas.ViewHolderMesa(itemMesa)
     }
 
     /**

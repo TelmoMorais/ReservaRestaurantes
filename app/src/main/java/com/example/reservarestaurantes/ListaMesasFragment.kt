@@ -34,7 +34,7 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         LoaderManager.getInstance(this).initLoader(ListaMesasFragment.ID_LOADER_MESAS, null, this)
 
-        adapterMesas = AdapterMesas()
+        adapterMesas = AdapterMesas(this)
         binding.recyclerViewMesas.adapter = adapterMesas
         binding.recyclerViewMesas.layoutManager = LinearLayoutManager(requireContext())
     }
