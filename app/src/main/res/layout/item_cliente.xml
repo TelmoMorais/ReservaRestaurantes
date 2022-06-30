@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteTitulo" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewItemClienteTelefone"
         android:layout_width="881dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteNome" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewItemClienteNif"
         android:layout_width="881dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -52,10 +52,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteTelefone" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewItemClienteMorada"
         android:layout_width="881dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -64,5 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteNif" />
 </androidx.constraintlayout.widget.ConstraintLayout>
