@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="mobile_navigation" type="id" />
+    <item name="listaReservasFragment" type="id" />
+    <item name="MenuPrincipalFragment" type="id" />
+    <item name="action_MenuPrincipalFragment_to_listaReservasFragment" type="id" />
+</resources>
