@@ -125,20 +125,26 @@ class ContentProviderReservas : ContentProvider() {
     }
 
     companion object{
-        const val AUTHORITY = "com.example.reservarestaurantes"
+        private const val AUTHORITY = "com.example.reservarestaurantes"
 
-        const val URI_CLIENTES = 100
-        const val URI_CLIENTE_ESPECIFICO = 101
-        const val URI_MESAS = 200
-        const val URI_MESA_ESPECIFICA = 201
-        const val URI_REFEICOES = 300
-        const val URI_REFEICAO_ESPECIFICA = 301
-        const val URI_RESERVAS = 400
-        const val URI_RESERVA_ESPECIFICA = 401
+        private const val URI_CLIENTES = 100
+        private const val URI_CLIENTE_ESPECIFICO = 101
+        private const val URI_MESAS = 200
+        private const val URI_MESA_ESPECIFICA = 201
+        private const val URI_REFEICOES = 300
+        private const val URI_REFEICAO_ESPECIFICA = 301
+        private const val URI_RESERVAS = 400
+        private const val URI_RESERVA_ESPECIFICA = 401
 
 
-        const val UNICO_REGISTO = "vnd.android.cursor.item"
-        const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
+        private const val UNICO_REGISTO = "vnd.android.cursor.item"
+        private const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
+
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
+        val ENDERECO_RESERVAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDReservas.NOMETABELA)
+        val ENDERECO_CLIENTES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDClientes.NOMETABELA)
+        val ENDERECO_MESAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDMesas.NOMETABELA)
+        val ENDERECO_REFEICOES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDRefeicao.NOMETABELA)
 
 
         fun getUriMatcher() : UriMatcher {
