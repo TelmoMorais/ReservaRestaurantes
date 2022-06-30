@@ -7,12 +7,12 @@
 
     <TextView
         android:id="@+id/textViewItemClienteTitulo"
-        android:layout_width="885dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/ItemClienteTitulo"
         android:textAlignment="center"
-        android:textSize="60sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,49 +20,49 @@
 
     <TextView
         android:id="@+id/textViewItemClienteNome"
-        android:layout_width="881dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/ItemClienteNome"
-        android:textSize="34sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteTitulo" />
 
     <TextView
         android:id="@+id/textViewItemClienteTelefone"
-        android:layout_width="881dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="@string/ItemClienteTelefone"
-        android:textSize="34sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteNome" />
 
     <TextView
         android:id="@+id/textViewItemClienteNif"
-        android:layout_width="881dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:text="@string/ItemClienteNif"
-        android:textSize="34sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteTelefone" />
 
     <TextView
         android:id="@+id/textViewItemClienteMorada"
-        android:layout_width="881dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="24dp"
         android:text="@string/ItemClienteMorada"
-        android:textSize="34sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteNif" />
 </androidx.constraintlayout.widget.ConstraintLayout>
