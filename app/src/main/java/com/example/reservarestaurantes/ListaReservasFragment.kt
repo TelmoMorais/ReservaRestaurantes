@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import com.example.reservarestaurantes.databinding.FragmentListaReservasBinding
 
@@ -29,7 +30,7 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_RESERVAS, null, this)
     }
 
     override fun onDestroyView() {
@@ -47,9 +48,15 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
      * @param args Any arguments supplied by the caller.
      * @return Return a new Loader instance that is ready to start loading.
      */
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
-    }
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
+        CursorLoader(
+            requireContext(),
+            ContentProviderReservas.ENDERECO_RESERVAS,
+            TabelaBDReservas.TODOS_CAMPOS_RESERVA,
+            null,
+            null,
+            "${TabelaBDReservas.CAMPO_DATARESERVA}"
+        )
 
     /**
      * Called when a previously created loader has finished its load.  Note
@@ -110,5 +117,9 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
         TODO("Not yet implemented")
+    }
+
+    companion object{
+        const val ID_LOADER_RESERVAS = 0
     }
 }
