@@ -19,6 +19,14 @@
     <string name="ItemMesaLugares">4</string>
 
 
+    <string name="ItemReservaTitulo">Reserva</string>
+    <string name="ItemReservaData">10/07/2022</string>
+    <string name="ItemReservaNrPessoas">5</string>
+    <string name="ItemReservaCliente">José dos Santos Silva</string>
+    <string name="ItemReservaMesa">1</string>
+    <string name="ItemReservaRefeicao">Almoço</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

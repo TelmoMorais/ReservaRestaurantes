@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewItemMesaTitulo"
+        android:id="@+id/textViewItemReservaTitulo"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewItemMesaNumero"
+        android:id="@+id/textViewItemReservaData"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -28,10 +28,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewItemMesaTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemReservaTitulo" />
 
     <TextView
-        android:id="@+id/textViewItemMesaLugares"
+        android:id="@+id/textViewItemReservaNrPessoas"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -40,10 +40,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewItemMesaNumero" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemReservaData" />
 
     <TextView
-        android:id="@+id/textViewItemClienteNif"
+        android:id="@+id/textViewItemReservaCliente"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -52,10 +52,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewItemMesaLugares" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemReservaNrPessoas" />
 
     <TextView
-        android:id="@+id/textViewItemClienteMorada"
+        android:id="@+id/textViewItemReservaMesa"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -64,5 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewItemClienteNif" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemReservaCliente" />
 </androidx.constraintlayout.widget.ConstraintLayout>
