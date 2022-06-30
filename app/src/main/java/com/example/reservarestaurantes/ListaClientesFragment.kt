@@ -57,7 +57,7 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             null,
             "${TabelaBDClientes.CAMPO_NOME}"
         )
-    
+
 
     /**
      * Called when a previously created loader has finished its load.  Note
