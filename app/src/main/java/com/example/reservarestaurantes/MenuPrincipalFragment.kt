@@ -28,7 +28,7 @@ class MenuPrincipalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonMenuReservas.setOnClickListener {
-           findNavController().navigate(R.id.action_MenuPrincipalFragment_to_listaReservasFragment)
+           findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaReservasFragment2)
         }
     }
 
