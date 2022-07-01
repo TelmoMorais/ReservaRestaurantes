@@ -3,6 +3,7 @@ package com.example.reservarestaurantes
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<AdapterMesas.ViewHolderMesa>() {
@@ -16,7 +17,18 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
             }
         }
 
-    class ViewHolderMesa(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderMesa(itemMesa: View) : RecyclerView.ViewHolder(itemMesa) {
+        val textViewItemMesaNumeroMesa = itemMesa.findViewById<TextView>(R.id.textViewItemMesaNumeroMesa)
+        val textViewItemMesaLugares = itemMesa.findViewById<TextView>(R.id.textViewItemMesaLugares)
+
+        var mesa : Mesas? = null
+            get() = field
+            set(value: Mesas?) {
+                field = value
+
+                textViewItemMesaNumeroMesa.text = "${mesa?.numero_mesa}"
+                textViewItemMesaLugares.text = "${mesa?.quantidade_lugares}"
+            }
 
     }
 
@@ -44,7 +56,7 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMesa {
-        val itemMesa = fragment.layoutInflater.inflate(R.layout.item_mesa, parent, false)
+        val itemMesa = fragment.layoutInflater.inflate(R.layout.item_mesas, parent, false)
         return AdapterMesas.ViewHolderMesa(itemMesa)
     }
 
@@ -70,7 +82,8 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderMesa, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.mesa = Mesas.fromCursor(cursor!!)
     }
 
     /**
