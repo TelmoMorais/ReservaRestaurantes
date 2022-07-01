@@ -3,6 +3,7 @@ package com.example.reservarestaurantes
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -17,7 +18,25 @@ class AdapterClientes(val fragment: ListaClientesFragment) : RecyclerView.Adapte
             }
         }
 
-    class ViewHolderCliente(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderCliente(itemCliente: View) : RecyclerView.ViewHolder(itemCliente) {
+        val textViewItemClienteNome = itemCliente.findViewById<TextView>(R.id.textViewItemClienteNome)
+        val textViewItemClienteTelefone = itemCliente.findViewById<TextView>(R.id.textViewItemClienteTelefone)
+        val textViewItemClienteNif = itemCliente.findViewById<TextView>(R.id.textViewItemClienteNif)
+        val textViewItemClienteMorada = itemCliente.findViewById<TextView>(R.id.textViewItemClienteMorada)
+
+        var cliente : Clientes? = null
+            get() = field
+            set(value: Clientes?) {
+                field = value
+
+                textViewItemClienteNome.text = cliente?.nome
+                textViewItemClienteTelefone.text = cliente?.contato_telefonico
+                textViewItemClienteNif.text = cliente?.nif
+                textViewItemClienteMorada.text = cliente?.morada
+
+
+            }
+
 
     }
 
@@ -71,7 +90,8 @@ class AdapterClientes(val fragment: ListaClientesFragment) : RecyclerView.Adapte
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderCliente, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.cliente = Clientes.fromCursor(cursor!!)
     }
 
     /**
