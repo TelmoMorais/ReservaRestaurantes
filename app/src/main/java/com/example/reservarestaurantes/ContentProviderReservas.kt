@@ -45,9 +45,7 @@ class ContentProviderReservas : ContentProvider() {
 
             else -> null
         }
-
-        db.close()
-
+        
         return cursor
     }
 
