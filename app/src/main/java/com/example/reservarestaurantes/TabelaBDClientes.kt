@@ -10,12 +10,13 @@ class TabelaBDClientes (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
 
     companion object{
         const val NOMETABELA = "Clientes"
+        const val CAMPO_ID = "$NOMETABELA.${BaseColumns._ID}"
         const val CAMPO_NOME = "Nome"
         const val CAMPO_TELEFONE = "Contato_Telefonico"
         const val CAMPO_NIF = "NIF"
         const val CAMPO_MORADA = "Morada"
 
-        val TODOS_CAMPOS_CIENTES = arrayOf(BaseColumns._ID,CAMPO_NOME,CAMPO_TELEFONE,CAMPO_NIF,CAMPO_MORADA)
+        val TODOS_CAMPOS_CIENTES = arrayOf(CAMPO_ID,CAMPO_NOME,CAMPO_TELEFONE,CAMPO_NIF,CAMPO_MORADA)
 
     }
 }

@@ -45,7 +45,7 @@ class ContentProviderReservas : ContentProvider() {
 
             else -> null
         }
-        
+
         return cursor
     }
 

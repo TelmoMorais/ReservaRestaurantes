@@ -11,9 +11,10 @@ class TabelaBDRefeicao (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
 
     companion object{
         const val NOMETABELA = "Refeicao"
+        const val CAMPO_ID = "$NOMETABELA.${BaseColumns._ID}"
         const val CAMPO_TIPO_REFEICAO = "Tipo_Refeicao"
 
-        val TODOS_CAMPOS_REFEICAO = arrayOf(BaseColumns._ID, CAMPO_TIPO_REFEICAO)
+        val TODOS_CAMPOS_REFEICAO = arrayOf(CAMPO_ID, CAMPO_TIPO_REFEICAO)
 
     }
 }
