@@ -1,8 +1,10 @@
 package com.example.reservarestaurantes
 
 import android.database.Cursor
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapter<AdapterReservas.ViewHolderReserva>() {
@@ -16,7 +18,25 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
         }
     }
 
-    class ViewHolderReserva(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderReserva(itemReserva: View) : RecyclerView.ViewHolder(itemReserva) {
+        val textViewItemReservaData = itemReserva.findViewById<TextView>(R.id.textViewItemReservaData)
+        val textViewItemReservaNrPessoas = itemReserva.findViewById<TextView>(R.id.textViewItemReservaNrPessoas)
+        val textViewItemReservaCliente = itemReserva.findViewById<TextView>(R.id.textViewItemReservaCliente)
+        val textViewItemReservaMesa= itemReserva.findViewById<TextView>(R.id.textViewItemReservaMesa)
+        val textViewItemReservaRefeicao= itemReserva.findViewById<TextView>(R.id.textViewItemReservaRefeicao)
+
+        var reserva : Reservas? = null
+            get() = field
+            set(value: Reservas?) {
+                field = value
+
+                textViewItemReservaData.text = "${reserva?.data_reserva}"
+                textViewItemReservaNrPessoas.text = "${reserva?.numero_pessoas}"
+                textViewItemReservaCliente.text = "${reserva?.clientes_id}"
+                textViewItemReservaMesa.text = "${reserva?.mesas_id}"
+                textViewItemReservaRefeicao.text = "${reserva?.refeicao_id}"
+
+            }
 
     }
 
@@ -70,7 +90,8 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderReserva, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.reserva = Reservas.fromCursor(cursor!!)
     }
 
     /**
