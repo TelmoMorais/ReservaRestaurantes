@@ -78,7 +78,7 @@ class BaseDadosTest {
 
         val db = getWritableDatabase()
 
-       insereMesa(db, Mesas(2,5))
+        insereMesa(db, Mesas(2,5))
 
 
         db.close()
@@ -135,7 +135,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDClientes(db).update(
             cliente.toContentValues(),
-            "${TabelaBDClientes.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${cliente.id}"))
 
         assertEquals(1, registosAlterados)
@@ -155,7 +155,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDMesas(db).update(
             mesa.toContentValues(),
-            "${TabelaBDMesas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${mesa.id}"))
 
         assertEquals(1, registosAlterados)
@@ -174,7 +174,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDRefeicao(db).update(
             refeicao.toContentValues(),
-            "${TabelaBDRefeicao.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${refeicao.id}"))
 
         assertEquals(1, registosAlterados)
@@ -217,7 +217,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDReservas(db).update(
             reserva.toContentValues(),
-            "${TabelaBDReservas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${reserva.id}"))
 
         assertEquals(1, registosAlterados)
@@ -237,7 +237,7 @@ class BaseDadosTest {
 
 
         val registosEliminados = TabelaBDClientes(db).delete(
-            "${TabelaBDReservas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${cliente.id}"))
 
         assertEquals(1, registosEliminados)
@@ -254,7 +254,7 @@ class BaseDadosTest {
 
 
         val registosEliminados = TabelaBDMesas(db).delete(
-            "${TabelaBDMesas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${mesa.id}"))
 
         assertEquals(1, registosEliminados)
@@ -271,7 +271,7 @@ class BaseDadosTest {
         insereRefeicao(db, refeicao)
 
         val registosEliminados = TabelaBDRefeicao(db).delete(
-            "${TabelaBDRefeicao.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${refeicao.id}"))
 
         assertEquals(1, registosEliminados)
@@ -297,7 +297,7 @@ class BaseDadosTest {
         insereReserva(db, reserva)
 
         val registosEliminados = TabelaBDReservas(db).delete(
-            "${TabelaBDReservas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${refeicao.id}"))
 
         assertEquals(1, registosEliminados)
@@ -315,7 +315,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDClientes(db).query(
             TabelaBDClientes.TODOS_CAMPOS_CIENTES,
-            "${TabelaBDClientes.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${cliente.id}"),
             null,
             null,
@@ -341,7 +341,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDMesas(db).query(
             TabelaBDMesas.TODOS_CAMPOS_MESAS,
-            "${TabelaBDMesas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${mesa.id}"),
             null,
             null,
@@ -367,7 +367,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDRefeicao(db).query(
             TabelaBDRefeicao.TODOS_CAMPOS_REFEICAO,
-            "${TabelaBDRefeicao.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${refeicao.id}"),
             null,
             null,
@@ -404,7 +404,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDReservas(db).query(
             TabelaBDReservas.TODOS_CAMPOS_RESERVA,
-            "${TabelaBDReservas.CAMPO_ID}=?",
+            "${BaseColumns._ID}=?",
             arrayOf("${reserva.id}"),
             null,
             null,
