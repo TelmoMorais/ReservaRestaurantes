@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
                 invalidateOptionsMenu()
             }
         }
+
+
+    var fragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +49,21 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        val opcaoProcessada: Boolean
+
+        if (fragment is MenuPrincipalFragment) {
+            opcaoProcessada = (fragment as MenuPrincipalFragment).processaOpcaoMenu(item)
+        } else if (fragment is ListaReservasFragment) {
+            opcaoProcessada = (fragment as ListaReservasFragment).processaOpcaoMenu(item)
+        } else {
+            opcaoProcessada = false
         }
+
+        if (opcaoProcessada) return true
+
+        return super.onOptionsItemSelected(item)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

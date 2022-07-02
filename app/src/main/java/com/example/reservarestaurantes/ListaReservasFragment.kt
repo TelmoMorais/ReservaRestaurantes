@@ -3,6 +3,7 @@ package com.example.reservarestaurantes
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -39,6 +40,7 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         binding.recyclerViewReservas.layoutManager = LinearLayoutManager(requireContext())
 
         val activity = activity as MainActivity
+        activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista_reservas
     }
 
@@ -127,6 +129,14 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterReservas!!.cursor = null
     }
+
+    fun processaOpcaoMenu(item : MenuItem) : Boolean =
+        when(item.itemId){
+            R.id.action_inserir -> true
+            R.id.action_alterar -> true
+            R.id.action_eliminar -> true
+            else -> false
+        }
 
     companion object{
         const val ID_LOADER_RESERVAS = 0
