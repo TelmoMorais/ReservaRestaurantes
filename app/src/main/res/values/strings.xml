@@ -40,6 +40,12 @@
     
     <string name="menuEdicaoGuardar">Guardar</string>
     <string name="menuEdicaoCancelar">Cancelar</string>
+    
+    <string name="dataReservaObrigatorio">Preencha este Campo</string>
+    <string name="nrPessoasReservaObrigatorio">Preencha este Campo</string>
+    <string name="clienteReservaObrigatorio">Preencha este Campo</string>
+    <string name="mesaReservaObrigatorio">Preencha este Campo</string>
+    <string name="refeicaoReservaObrigatorio">Preencha este Campo</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

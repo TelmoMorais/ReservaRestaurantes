@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Spinner
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -36,8 +37,12 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     ): View? {
         _binding = FragmentInserirReservaBinding.inflate(inflater, container, false)
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inserir_reserva, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -153,12 +158,60 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_guardar -> {
+                guardar()
                 true
             }
             R.id.action_cancelar -> {
-                findNavController().navigate(R.id.action_inserirReservaFragment2_to_listaReservasFragment2)
+                voltarListaReservas()
                 true
             }
             else -> false
         }
+
+    private fun guardar(){
+        val data =binding.editTextDataReserva.text.toString()
+        if(data.isBlank()){
+            binding.editTextDataReserva.error = getString(R.string.dataReservaObrigatorio)
+            binding.editTextDataReserva.requestFocus()
+            return
+        }
+
+        val nrPessoas = binding.editTextNrPessoasReserva.text.toString()
+        if(nrPessoas.isBlank()){
+            binding.editTextNrPessoasReserva.error = getString(R.string.nrPessoasReservaObrigatorio)
+            binding.editTextNrPessoasReserva.requestFocus()
+            return
+        }
+
+        val idCliente = binding.spinnerClienteReserva.selectedItemId
+        if(idCliente == Spinner.INVALID_ROW_ID){
+            binding.textViewClienteReserva.error = getString(R.string.clienteReservaObrigatorio)
+            binding.spinnerClienteReserva.requestFocus()
+            return
+        }
+
+        val idMesa = binding.spinnerMesaReserva.selectedItemId
+        if(idMesa == Spinner.INVALID_ROW_ID){
+            binding.textViewMesaReserva.error = getString(R.string.mesaReservaObrigatorio)
+            binding.spinnerMesaReserva.requestFocus()
+            return
+        }
+
+        val idRefeicao = binding.spinnerRefeicaoReserva.selectedItemId
+        if(idRefeicao == Spinner.INVALID_ROW_ID){
+            binding.textViewRefeicaoReserva.error = getString(R.string.refeicaoReservaObrigatorio)
+            binding.spinnerRefeicaoReserva.requestFocus()
+            return
+        }
+
+        insereReserva(data, nrPessoas, idCliente, idMesa, idRefeicao)
+    }
+
+    private fun insereReserva(data: String, nrPessoas: String, idCliente: Long, idMesa: Long, idRefeicao: Long){
+
+    }
+
+    private fun voltarListaReservas(){
+        findNavController().navigate(R.id.action_inserirReservaFragment2_to_listaReservasFragment2)
+    }
 }

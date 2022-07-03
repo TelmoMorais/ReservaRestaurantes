@@ -29,7 +29,7 @@
                 android:hint="@string/editTextNrPessoasReserva" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewClienteReserva"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:text="@string/textViewClienteReserva"
