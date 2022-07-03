@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.databinding.FragmentInserirReservaBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 /**
@@ -204,13 +206,24 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return
         }
 
-        insereReserva(data, nrPessoas, idCliente, idMesa, idRefeicao)
+        //insereReserva(data.toLong(), nrPessoas.toInt(), idCliente, idMesa, idRefeicao)
     }
 
-    private fun insereReserva(data: String, nrPessoas: String, idCliente: Long, idMesa: Long, idRefeicao: Long){
+    /*
+    private fun insereReserva(data: Long, nrPessoas: Int, idCliente: Long, idMesa: Long, idRefeicao: Long){
+        val reserva = Reservas(data, nrPessoas, Clientes(id=idCliente), Mesas(id=idMesa), Refeicao(id=idRefeicao))
 
+        val enderecoReservaInserida = requireActivity().contentResolver.insert(ContentProviderReservas.ENDERECO_RESERVAS, reserva.toContentValues())
+
+        if(enderecoReservaInserida == null){
+            Snackbar.make(binding.editTextDataReserva, R.string.erroGuardarReserva, Snackbar.LENGTH_INDEFINITE).show()
+            return
+        }
+
+        Toast.makeText(requireContext(), R.string.reservaGuardadaSucesso, Toast.LENGTH_LONG).show()
+        voltarListaReservas()
     }
-
+    */
     private fun voltarListaReservas(){
         findNavController().navigate(R.id.action_inserirReservaFragment2_to_listaReservasFragment2)
     }

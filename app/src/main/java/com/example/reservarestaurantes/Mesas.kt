@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class Mesas (var numero_mesa: Int, var quantidade_lugares: Int, var id: Long = -1 ) {
+data class Mesas (var numero_mesa: Int = 1, var quantidade_lugares: Int = 4, var id: Long = -1 ) {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
 
