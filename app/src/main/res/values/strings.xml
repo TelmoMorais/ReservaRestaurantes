@@ -51,6 +51,12 @@
     <string name="reservaGuardadaSucesso">Reserva guardada com sucesso</string>
     <string name="erroGuardarReserva">Erro ao guardar Reserva</string>
 
+    <string name="eliminarReservaLabel">Eliminar Reserva</string>
+
+    <string name="nomeCliente">Nome cliente</string>
+    <string name="mesaNumero">Mesa</string>
+    <string name="refeicao">Refeição</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
