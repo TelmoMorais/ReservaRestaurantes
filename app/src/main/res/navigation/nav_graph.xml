@@ -35,4 +35,13 @@
             android:id="@+id/action_inserirReservaFragment2_to_listaReservasFragment2"
             app:destination="@id/listaReservasFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/eliminarReservaFragment"
+        android:name="com.example.reservarestaurantes.EliminarReservaFragment"
+        android:label="fragment_eliminar_reserva"
+        tools:layout="@layout/fragment_eliminar_reserva" >
+        <action
+            android:id="@+id/action_eliminarReservaFragment_to_listaReservasFragment2"
+            app:destination="@id/listaReservasFragment2" />
+    </fragment>
 </navigation>

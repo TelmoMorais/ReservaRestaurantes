@@ -31,16 +31,16 @@
     <string name="MenuListaReservaActionInserir">Inserir</string>
     <string name="MenuListaReservaActionalterar">Alterar</string>
     <string name="MenuListaReservaActioneliminar">Eliminar</string>
-    
+
     <string name="editTextDataReserva">Data Reserva</string>
     <string name="editTextNrPessoasReserva">Número de Pessoas</string>
     <string name="textViewClienteReserva">Cliente</string>
     <string name="textViewMesaReserva">Mesa</string>
     <string name="textViewRefeicaoReserva">Refeição</string>
-    
+
     <string name="menuEdicaoGuardar">Guardar</string>
     <string name="menuEdicaoCancelar">Cancelar</string>
-    
+
     <string name="dataReservaObrigatorio">Preencha este Campo</string>
     <string name="nrPessoasReservaObrigatorio">Preencha este Campo</string>
     <string name="clienteReservaObrigatorio">Preencha este Campo</string>
