@@ -57,6 +57,9 @@
     <string name="mesaNumero">Mesa</string>
     <string name="refeicao">Refeição</string>
 
+    <string name="eliminar">Eliminar</string>
+    <string name="cancelar">Cancelar</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

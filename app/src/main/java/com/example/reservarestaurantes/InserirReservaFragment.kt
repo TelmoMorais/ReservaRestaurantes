@@ -28,10 +28,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     private val binding get() =_binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +51,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MESAS, null, this)
         LoaderManager.getInstance(this).initLoader(ID_LOADER_REFEICOES, null, this)
 
-        val activity = activity as MainActivity
+        val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual =R.menu.menu_edicao
     }
