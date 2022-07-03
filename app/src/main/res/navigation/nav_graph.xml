@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_listaReservasFragment2_to_inserirReservaFragment2"
             app:destination="@id/inserirReservaFragment2" />
+        <action
+            android:id="@+id/action_listaReservasFragment2_to_eliminarReservaFragment"
+            app:destination="@id/eliminarReservaFragment" />
     </fragment>
     <fragment
         android:id="@+id/inserirReservaFragment2"

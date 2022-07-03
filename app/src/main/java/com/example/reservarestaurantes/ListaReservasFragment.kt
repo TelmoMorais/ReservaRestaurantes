@@ -147,7 +147,10 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 true
             }
             R.id.action_alterar -> true
-            R.id.action_eliminar -> true
+            R.id.action_eliminar ->{
+                findNavController().navigate(R.id.action_listaReservasFragment2_to_eliminarReservaFragment)
+                true
+            }
             else -> false
         }
 
