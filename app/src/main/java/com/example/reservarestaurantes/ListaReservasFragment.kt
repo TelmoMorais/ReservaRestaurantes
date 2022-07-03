@@ -16,6 +16,15 @@ import com.example.reservarestaurantes.databinding.FragmentListaReservasBinding
 
 class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
 
+    var reservaSelecionada : Reservas? = null
+        get() = field
+        set(value) {
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            }
+        }
+
     private var _binding: FragmentListaReservasBinding? = null
     private var adapterReservas: AdapterReservas? = null
 

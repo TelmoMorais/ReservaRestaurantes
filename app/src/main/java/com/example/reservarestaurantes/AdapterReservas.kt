@@ -53,6 +53,7 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
         private fun seleciona(){
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
             viewHolderSelecionado = this
+
         }
 
         private fun desseleciona(){
