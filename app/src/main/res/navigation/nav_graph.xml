@@ -18,5 +18,21 @@
         android:id="@+id/listaReservasFragment2"
         android:name="com.example.reservarestaurantes.ListaReservasFragment"
         android:label="fragment_lista_reservas"
-        tools:layout="@layout/fragment_lista_reservas" />
+        tools:layout="@layout/fragment_lista_reservas" >
+        <action
+            android:id="@+id/action_listaReservasFragment2_to_menuPrincipalFragment2"
+            app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaReservasFragment2_to_inserirReservaFragment2"
+            app:destination="@id/inserirReservaFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/inserirReservaFragment2"
+        android:name="com.example.reservarestaurantes.InserirReservaFragment"
+        android:label="fragment_inserir_reserva"
+        tools:layout="@layout/fragment_inserir_reserva" >
+        <action
+            android:id="@+id/action_inserirReservaFragment2_to_listaReservasFragment2"
+            app:destination="@id/listaReservasFragment2" />
+    </fragment>
 </navigation>
