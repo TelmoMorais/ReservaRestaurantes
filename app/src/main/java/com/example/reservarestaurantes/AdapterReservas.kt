@@ -18,12 +18,19 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
         }
     }
 
-    class ViewHolderReserva(itemReserva: View) : RecyclerView.ViewHolder(itemReserva) {
+    var viewHolderSelecionado : ViewHolderReserva? = null
+
+
+    inner class ViewHolderReserva(itemReserva: View) : RecyclerView.ViewHolder(itemReserva), View.OnClickListener {
         val textViewItemReservaData = itemReserva.findViewById<TextView>(R.id.textViewItemReservaData)
         val textViewItemReservaNrPessoas = itemReserva.findViewById<TextView>(R.id.textViewItemReservaNrPessoas)
         val textViewItemReservaCliente = itemReserva.findViewById<TextView>(R.id.textViewItemReservaCliente)
         val textViewItemReservaMesa= itemReserva.findViewById<TextView>(R.id.textViewItemReservaMesa)
         val textViewItemReservaRefeicao= itemReserva.findViewById<TextView>(R.id.textViewItemReservaRefeicao)
+
+        init {
+            itemReserva.setOnClickListener(this)
+        }
 
         var reserva : Reservas? = null
             get() = field
@@ -37,6 +44,20 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
                 textViewItemReservaRefeicao.text = "${reserva?.refeicao_id}"
 
             }
+
+        override fun onClick(p0: View?) {
+            viewHolderSelecionado?.desseleciona()
+            seleciona()
+        }
+
+        private fun seleciona(){
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+            viewHolderSelecionado = this
+        }
+
+        private fun desseleciona(){
+            itemView.setBackgroundResource(android.R.color.white)
+        }
 
     }
 
