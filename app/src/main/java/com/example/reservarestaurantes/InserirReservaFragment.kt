@@ -4,11 +4,13 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.databinding.FragmentInserirReservaBinding
 
 
@@ -46,7 +48,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
         val activity = activity as MainActivity
         activity.fragment = this
-
+        activity.idMenuAtual =R.menu.menu_edicao
     }
 
 
@@ -137,4 +139,16 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     override fun onLoaderReset(loader: Loader<Cursor>) {
         TODO("Not yet implemented")
     }
+
+    fun processaOpcaoMenu(item: MenuItem) : Boolean =
+        when(item.itemId) {
+            R.id.action_guardar -> {
+                true
+            }
+            R.id.action_cancelar -> {
+                findNavController().navigate(R.id.action_inserirReservaFragment2_to_listaReservasFragment2)
+                true
+            }
+            else -> false
+        }
 }
