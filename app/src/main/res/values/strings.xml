@@ -60,6 +60,9 @@
     <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>
 
+    <string name="erroEliminarReserva">Erro ao Eliminar Reserva</string>
+    <string name="reservaEliminadaSucesso">Reserva eliminada com sucesso</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

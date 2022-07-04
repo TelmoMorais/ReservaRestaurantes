@@ -1,13 +1,17 @@
 package com.example.reservarestaurantes
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.Person.fromBundle
+import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.databinding.FragmentEliminarReservaBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class EliminarReservaFragment : Fragment() {
@@ -51,13 +55,36 @@ class EliminarReservaFragment : Fragment() {
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
         when(item.itemId) {
             R.id.action_eliminar -> {
-
+                eliminarReserva()
                 true
             }
             R.id.action_cancelar -> {
-
+                voltarListaReservas()
                 true
             }
             else -> false
         }
+
+    private fun eliminarReserva(){
+        val enderecoReserva = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_RESERVAS, "${reserva.id}")
+        val registosEliminados = requireActivity().contentResolver.delete(enderecoReserva, null, null)
+
+        if (registosEliminados != 1){
+            Snackbar.make(
+                binding.textViewEliminarDataReserva,
+                R.string.erroEliminarReserva,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
+            return
+        }
+
+        Toast.makeText(requireContext(), R.string.reservaEliminadaSucesso, Toast.LENGTH_LONG).show()
+        voltarListaReservas()
+    }
+
+
+    private fun voltarListaReservas() {
+        val acao = EliminarReservaFragmentDirections.actionEliminarReservaFragmentToListaReservasFragment2()
+        findNavController().navigate(acao)
+    }
 }
