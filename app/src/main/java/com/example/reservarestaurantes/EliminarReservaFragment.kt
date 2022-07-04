@@ -1,5 +1,6 @@
 package com.example.reservarestaurantes
 
+import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.Person.fromBundle
 import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.databinding.FragmentEliminarReservaBinding
@@ -66,6 +68,19 @@ class EliminarReservaFragment : Fragment() {
         }
 
     private fun eliminarReserva(){
+        val alertDialog = AlertDialog.Builder(requireContext())
+
+        alertDialog.apply {
+            setTitle(R.string.eliminarReservaLabel)
+            setMessage(R.string.confirmaEliminarReserva)
+            setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialogInterface, i ->  })
+            setPositiveButton(R.string.eliminar, DialogInterface.OnClickListener { dialogInterface, i -> confirmaEliminarReserva() })
+            show()
+        }
+    }
+
+    private fun confirmaEliminarReserva() {
+
         val enderecoReserva = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_RESERVAS, "${reserva.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoReserva, null, null)
 
