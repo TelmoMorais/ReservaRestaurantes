@@ -146,7 +146,11 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 findNavController().navigate(R.id.action_listaReservasFragment2_to_inserirReservaFragment2)
                 true
             }
-            R.id.action_alterar -> true
+            R.id.action_alterar -> {
+                val acao = ListaReservasFragmentDirections.actionListaReservasFragment2ToInserirReservaFragment2(reservaSelecionada)
+                findNavController().navigate(acao)
+                true
+            }
             R.id.action_eliminar ->{
                 findNavController().navigate(R.id.action_listaReservasFragment2_to_eliminarReservaFragment)
                 true
