@@ -151,6 +151,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
+        if (_binding == null) return
         binding.spinnerClienteReserva.adapter = null
     }
 
