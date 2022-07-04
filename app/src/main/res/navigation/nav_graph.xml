@@ -46,5 +46,8 @@
         <action
             android:id="@+id/action_eliminarReservaFragment_to_listaReservasFragment2"
             app:destination="@id/listaReservasFragment2" />
+        <argument
+            android:name="reserva"
+            app:argType="com.example.reservarestaurantes.Reservas" />
     </fragment>
 </navigation>

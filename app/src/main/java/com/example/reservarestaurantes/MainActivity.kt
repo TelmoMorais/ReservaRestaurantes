@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as ListaReservasFragment).processaOpcaoMenu(item)
         } else if(fragment is InserirReservaFragment){
             opcaoProcessada = (fragment as InserirReservaFragment).processaOpcaoMenu(item)
-        } else {
+        } else if (fragment is EliminarReservaFragment) {
+            opcaoProcessada = (fragment as EliminarReservaFragment).processaOpcaoMenu(item)
+        }else {
             opcaoProcessada = false
         }
 

@@ -75,7 +75,7 @@
             android:textColor="@color/purple_500" />
 
         <TextView
-            android:id="@+id/textViewEliminarNrPessoasReserva3"
+            android:id="@+id/textViewEliminarClienteReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -96,7 +96,7 @@
             android:textColor="@color/purple_500" />
 
         <TextView
-            android:id="@+id/textViewEliminarNrPessoasReserva2"
+            android:id="@+id/textViewEliminarMesaReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -117,7 +117,7 @@
             android:textColor="@color/purple_500" />
 
         <TextView
-            android:id="@+id/textViewEliminarNrPessoasReserva4"
+            android:id="@+id/textViewEliminarRefeicaoReserva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
