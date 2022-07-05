@@ -27,9 +27,9 @@ class TabelaBDReservas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA)  {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = " $NOMETABELA INNER JOIN ${TabelaBDClientes.NOMETABELA} ON ${TabelaBDClientes.CAMPO_ID} = $CAMPO_CLIENTES_ID, " +
-                "INNER JOIN ${TabelaBDMesas.NOMETABELA} ON ${TabelaBDMesas.CAMPO_ID}= $CAMPO_MESAS_ID, " +
-                "INNER JOIN ${TabelaBDRefeicao.NOMETABELA} ON ${TabelaBDRefeicao.CAMPO_ID}= $CAMPO_REFEICAO_ID"
+        // queryBuilder.tables = " $NOMETABELA INNER JOIN ${TabelaBDClientes.NOMETABELA} ON ${TabelaBDClientes.CAMPO_ID} = $CAMPO_CLIENTES_ID, " +
+          //      "INNER JOIN ${TabelaBDMesas.NOMETABELA} ON ${TabelaBDMesas.CAMPO_ID}= $CAMPO_MESAS_ID, " +
+            //    "INNER JOIN ${TabelaBDRefeicao.NOMETABELA} ON ${TabelaBDRefeicao.CAMPO_ID}= $CAMPO_REFEICAO_ID"
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }

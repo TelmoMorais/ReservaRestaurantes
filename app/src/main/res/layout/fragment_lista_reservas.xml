@@ -11,14 +11,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/botaoVoltarReservas"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewReservas"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerViewReservas"
-        app:layout_constraintStart_toStartOf="@+id/recyclerViewReservas"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewReservas"
-        app:layout_constraintVertical_bias="0.499" />
 </androidx.constraintlayout.widget.ConstraintLayout>

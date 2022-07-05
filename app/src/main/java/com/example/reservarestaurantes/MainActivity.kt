@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,7 +14,7 @@ import com.example.reservarestaurantes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    
     private lateinit var binding: ActivityMainBinding
 
     var idMenuAtual = R.menu.menu_lista_reservas
@@ -36,9 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -72,11 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
+
 
     fun mostraOpcoesAlterarEliminar (mostra: Boolean){
         menu!!.findItem(R.id.action_alterar).setVisible(mostra)
