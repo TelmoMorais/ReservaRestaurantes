@@ -65,6 +65,14 @@
 
     <string name="confirmaEliminarReserva">Tem a certeza que pretende eliminar esta Reserva?</string>
 
+    <string name="inserirClienteNome">Nome Cliente</string>
+    <string name="inserirClienteTelefone">Contato Telefónico</string>
+    <string name="inserirClienteNif">NIF</string>
+    <string name="inserirClienteMorada">Moarada</string>
+
+    <string name="inserirMesaNrMesa">Número Mesa</string>
+    <string name="inserirMesaLugares">Quantidade de Lugares</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

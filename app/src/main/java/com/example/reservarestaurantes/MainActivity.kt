@@ -14,7 +14,7 @@ import com.example.reservarestaurantes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    
+
     private lateinit var binding: ActivityMainBinding
 
     var idMenuAtual = R.menu.menu_lista_reservas
