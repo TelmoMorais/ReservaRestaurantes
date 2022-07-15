@@ -11,7 +11,7 @@ class TabelaBDMesas (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
 
     companion object{
         const val NOMETABELA = "Mesas"
-        const val CAMPO_ID = "${TabelaBDClientes.NOMETABELA}.${BaseColumns._ID}"
+        const val CAMPO_ID = "${TabelaBDMesas.NOMETABELA}.${BaseColumns._ID}"
         const val CAMPO_NUMERO_MESA = "Numero_Mesa"
         const val CAMPO_QUANTIDADE_LUGARES = "Quantidade_Lugares"
 
