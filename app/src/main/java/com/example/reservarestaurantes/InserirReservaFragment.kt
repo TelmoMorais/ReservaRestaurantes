@@ -204,12 +204,12 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return
         }
 
-        //insereReserva(data.toLong(), nrPessoas.toInt(), idCliente, idMesa, idRefeicao)
+        insereReserva(data.toLong(), nrPessoas.toInt(), idCliente, idMesa, idRefeicao)
     }
 
-    /*
+
     private fun insereReserva(data: Long, nrPessoas: Int, idCliente: Long, idMesa: Long, idRefeicao: Long){
-        val reserva = Reservas(data, nrPessoas, Clientes(id=idCliente), Mesas(id=idMesa), Refeicao(id=idRefeicao))
+        val reserva = Reservas(data, nrPessoas, Clientes(id=idCliente).id, Mesas(id=idMesa).id, Refeicao(id=idRefeicao).id)
 
         val enderecoReservaInserida = requireActivity().contentResolver.insert(ContentProviderReservas.ENDERECO_RESERVAS, reserva.toContentValues())
 
@@ -221,7 +221,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         Toast.makeText(requireContext(), R.string.reservaGuardadaSucesso, Toast.LENGTH_LONG).show()
         voltarListaReservas()
     }
-    */
+
     private fun voltarListaReservas(){
         findNavController().navigate(R.id.action_inserirReservaFragment2_to_listaReservasFragment2)
     }

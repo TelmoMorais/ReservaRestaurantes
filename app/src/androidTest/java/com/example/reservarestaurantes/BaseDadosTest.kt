@@ -404,7 +404,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDReservas(db).query(
             TabelaBDReservas.TODOS_CAMPOS_RESERVA,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDReservas.CAMPO_ID}=?",
             arrayOf("${reserva.id}"),
             null,
             null,
