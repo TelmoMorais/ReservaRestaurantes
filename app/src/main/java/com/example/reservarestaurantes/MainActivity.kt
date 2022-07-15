@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    var idMenuAtual = R.menu.menu_lista_reservas
+    var idMenuAtual = R.menu.menu_reservas
         get() = field
         set(value) {
             if (value != field) {

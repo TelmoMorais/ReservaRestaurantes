@@ -31,10 +31,13 @@ class MenuPrincipalFragment : Fragment() {
         binding.buttonMenuReservas.setOnClickListener {
            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaReservasFragment2)
         }
+        binding.buttonMenuClientes.setOnClickListener {
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaClientesFragment)
+        }
 
         val activity = activity as MainActivity
         activity.fragment = this
-        activity.idMenuAtual = R.menu.menu_lista_reservas
+        activity.idMenuAtual = R.menu.menu_reservas
     }
 
     override fun onDestroyView() {

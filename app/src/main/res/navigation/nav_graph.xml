@@ -8,11 +8,14 @@
     <fragment
         android:id="@+id/menuPrincipalFragment"
         android:name="com.example.reservarestaurantes.MenuPrincipalFragment"
-        android:label="fragment_menu_principal"
+        android:label="Menu Principal"
         tools:layout="@layout/fragment_menu_principal" >
         <action
             android:id="@+id/action_menuPrincipalFragment_to_listaReservasFragment2"
             app:destination="@id/listaReservasFragment2" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaClientesFragment"
+            app:destination="@id/listaClientesFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaReservasFragment2"
@@ -55,4 +58,9 @@
             android:name="reserva"
             app:argType="com.example.reservarestaurantes.Reservas" />
     </fragment>
+    <fragment
+        android:id="@+id/listaClientesFragment"
+        android:name="com.example.reservarestaurantes.ListaClientesFragment"
+        android:label="fragment_lista_clientes"
+        tools:layout="@layout/fragment_lista_clientes" />
 </navigation>
