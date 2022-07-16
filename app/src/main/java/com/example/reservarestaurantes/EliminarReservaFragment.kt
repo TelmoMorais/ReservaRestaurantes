@@ -45,7 +45,7 @@ class EliminarReservaFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        reserva = EliminarReservaFragmentArgs.fromBundle(arguments!!).reserva
+        reserva = EliminarReservaFragmentArgs.fromBundle(requireArguments()).reserva
 
         binding.textViewEliminarDataReserva.text = reserva.data_reserva.toString()
         binding.textViewEliminarNrPessoasReserva.text = reserva.numero_pessoas.toString()
