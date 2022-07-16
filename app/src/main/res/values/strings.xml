@@ -73,6 +73,9 @@
     <string name="inserirMesaNrMesa">Número Mesa</string>
     <string name="inserirMesaLugares">Quantidade de Lugares</string>
 
+    <string name="mesaGuardadaSucesso">Mesa guardada com sucesso</string>
+    <string name="erroGuardarMesa">Erro ao guardar Mesa</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

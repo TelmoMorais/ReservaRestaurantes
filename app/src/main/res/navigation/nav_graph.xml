@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_menuPrincipalFragment_to_listaClientesFragment"
             app:destination="@id/listaClientesFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaMesasFragment"
+            app:destination="@id/listaMesasFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaReservasFragment2"
@@ -62,5 +65,42 @@
         android:id="@+id/listaClientesFragment"
         android:name="com.example.reservarestaurantes.ListaClientesFragment"
         android:label="fragment_lista_clientes"
-        tools:layout="@layout/fragment_lista_clientes" />
+        tools:layout="@layout/fragment_lista_clientes" >
+        <action
+            android:id="@+id/action_listaClientesFragment_to_inserirClientesFragment"
+            app:destination="@id/inserirClientesFragment" />
+        <action
+            android:id="@+id/action_listaClientesFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaMesasFragment"
+        android:name="com.example.reservarestaurantes.ListaMesasFragment"
+        android:label="fragment_lista_mesas"
+        tools:layout="@layout/fragment_lista_mesas" >
+        <action
+            android:id="@+id/action_listaMesasFragment_to_inserirMesasFragment2"
+            app:destination="@id/inserirMesasFragment2" />
+        <action
+            android:id="@+id/action_listaMesasFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inserirMesasFragment2"
+        android:name="com.example.reservarestaurantes.InserirMesasFragment"
+        android:label="fragment_inserir_mesas"
+        tools:layout="@layout/fragment_inserir_mesas" >
+        <action
+            android:id="@+id/action_inserirMesasFragment2_to_listaMesasFragment"
+            app:destination="@id/listaMesasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inserirClientesFragment"
+        android:name="com.example.reservarestaurantes.InserirClientesFragment"
+        android:label="fragment_inserir_clientes"
+        tools:layout="@layout/fragment_inserir_clientes" >
+        <action
+            android:id="@+id/action_inserirClientesFragment_to_listaClientesFragment"
+            app:destination="@id/listaClientesFragment" />
+    </fragment>
 </navigation>
