@@ -9,6 +9,14 @@ class TabelaBDRefeicao (db: SQLiteDatabase) :TabelaBD(db, NOMETABELA) {
         db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_TIPO_REFEICAO TEXT NOT NULL)")
     }
 
+    fun insereAlmoco(){
+        db.execSQL("INSERT INTO $nome VALUES (${BaseColumns._ID}, Almoço)")
+    }
+
+    fun insereJantar(){
+        db.execSQL("INSERT INTO $nome VALUES (${BaseColumns._ID}, Jantar)")
+    }
+
     companion object{
         const val NOMETABELA = "Refeicao"
         const val CAMPO_ID = "$NOMETABELA.${BaseColumns._ID}"

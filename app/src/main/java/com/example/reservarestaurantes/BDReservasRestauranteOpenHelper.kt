@@ -19,6 +19,8 @@ class BDReservasRestauranteOpenHelper(context: Context?) : SQLiteOpenHelper(cont
         TabelaBDReservas(db).cria()
         TabelaBDMesas(db).cria()
         TabelaBDRefeicao(db).cria()
+        TabelaBDRefeicao(db).insereAlmoco()
+        TabelaBDRefeicao(db).insereJantar()
     }
 
     /**
