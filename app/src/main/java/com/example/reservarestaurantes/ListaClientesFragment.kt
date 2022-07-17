@@ -3,16 +3,25 @@ package com.example.reservarestaurantes
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.reservarestaurantes.databinding.FragmentListaClientesBinding
 
 class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+
+    var clienteSelecionado : Clientes? = null
+        get() = field
+        set(value) {
+            field = value
+            (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+        }
 
     private var _binding: FragmentListaClientesBinding? = null
     private var adapterClientes: AdapterClientes? = null
@@ -124,8 +133,28 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
+        if (_binding == null) return
         adapterClientes!!.cursor = null
     }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean =
+
+        when(item.itemId){
+            R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_listaClientesFragment_to_inserirClientesFragment)
+                true
+            }
+            R.id.action_alterar ->{
+                val acao = ListaClientesFragmentDirections.actionListaClientesFragmentToInserirClientesFragment()
+                findNavController().navigate(acao)
+                true
+            }
+            R.id.action_eliminar -> {
+                findNavController().navigate(R.id.action_listaClientesFragment_to_eliminarClienteFragment)
+                true
+            }
+            else -> false
+        }
 
     companion object {
         const val ID_LOADER_CLIENTES = 0

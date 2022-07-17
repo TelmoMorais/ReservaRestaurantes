@@ -72,6 +72,9 @@
         <action
             android:id="@+id/action_listaClientesFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaClientesFragment_to_eliminarClienteFragment"
+            app:destination="@id/eliminarClienteFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaMesasFragment"
@@ -102,5 +105,17 @@
         <action
             android:id="@+id/action_inserirClientesFragment_to_listaClientesFragment"
             app:destination="@id/listaClientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarClienteFragment"
+        android:name="com.example.reservarestaurantes.EliminarClienteFragment"
+        android:label="fragment_eliminar_cliente"
+        tools:layout="@layout/fragment_eliminar_cliente" >
+        <action
+            android:id="@+id/action_eliminarClienteFragment_to_listaClientesFragment"
+            app:destination="@id/listaClientesFragment" />
+        <argument
+            android:name="cliente"
+            app:argType="com.example.reservarestaurantes.Clientes" />
     </fragment>
 </navigation>

@@ -12,6 +12,7 @@
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/app_bar_main2.xml" value="0.284737067122702" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/content_main.xml" value="0.19752030782385635" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/content_main2.xml" value="0.2975630611372381" />
+        <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/fragment_eliminar_cliente.xml" value="0.2278751603249252" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/fragment_eliminar_reserva.xml" value="0.2" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/fragment_gallery.xml" value="0.284737067122702" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/layout/fragment_home.xml" value="0.284737067122702" />
@@ -34,6 +35,7 @@
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/menu/menu_edicao.xml" value="0.11754385964912281" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/menu/menu_eliminar.xml" value="0.1616075245831552" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/menu/menu_lista_reservas.xml" value="0.19837537409149208" />
+        <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/menu/menu_main.xml" value="0.23129542539546816" />
         <entry key="..\:/IPG/2Semestre/Programacao_Avancada/TrabalhoFinal/app/src/main/res/menu/menu_reservas.xml" value="0.19837537409149208" />
       </map>
     </option>

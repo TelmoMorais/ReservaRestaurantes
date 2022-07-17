@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFB2B2"
+    tools:context=".EliminarClienteFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewEliminarCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/EliminarCliente"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/design_default_color_error" />
+
+        <TextView
+            android:id="@+id/textViewNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/EliminarNome"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/textViewEliminarNomeCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="25/10/2022" />
+
+        <TextView
+            android:id="@+id/textViewTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/editTextNrPessoasReserva"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/textViewEliminarTelefoneCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="@string/EliminarTelefoneCliente" />
+
+        <TextView
+            android:id="@+id/textViewNif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/EliminarNif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/textViewEliminarNifCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="@string/EliminarNifCliente" />
+
+        <TextView
+            android:id="@+id/textViewMorada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/EliminarMorada"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/textViewEliminarMoradaCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:text="@string/EliminarMoradaCliente" />
+
+    </LinearLayout>
+</FrameLayout>

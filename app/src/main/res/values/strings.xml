@@ -79,6 +79,26 @@
     <string name="clienteGuardadoSucesso">Cliente guardado com sucesso</string>
     <string name="erroGuardarCliente">Erro ao guardar Cliente</string>
 
+    <string name="EliminarCliente">Eliminar Cliente</string>
+    <string name="EliminarNome">Nome</string>
+    <string name="EliminarNomeCliente">José dos Santos Silva</string>
+    <string name="EliminarTelefone">Contato Telefónico</string>
+    <string name="EliminarTelefoneCliente">963145236</string>
+    <string name="EliminarNif">Nif</string>
+    <string name="EliminarNifCliente">196325237</string>
+    <string name="EliminarMorada">Morada</string>
+    <string name="EliminarMoradaCliente">Rua de São Vicente 10, 6300-510 Guarda</string>
+
+    <string name="confirmarEliminarCliente">Tem a certeza que pretende eliminar este Cliente?</string>
+    <string name="erroEliminarCliente">Erro ao eliminar Cliente</string>
+    <string name="clienteEliminadoSucesso">Cliente Eliminado com sucesso</string>
+
+
+
+
+
+
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
