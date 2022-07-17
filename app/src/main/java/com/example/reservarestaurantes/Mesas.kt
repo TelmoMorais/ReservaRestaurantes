@@ -3,8 +3,10 @@ package com.example.reservarestaurantes
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.io.Serializable
 
-data class Mesas (var numero_mesa: Int = 1, var quantidade_lugares: Int = 4, var id: Long = -1 ) {
+data class Mesas (var numero_mesa: Int = 1, var quantidade_lugares: Int = 4, var id: Long = -1 ):
+    Serializable {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
 

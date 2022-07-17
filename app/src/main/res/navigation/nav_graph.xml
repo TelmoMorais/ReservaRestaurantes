@@ -129,5 +129,8 @@
         <action
             android:id="@+id/action_eliminarMesaFragment_to_listaMesasFragment"
             app:destination="@id/listaMesasFragment" />
+        <argument
+            android:name="mesa"
+            app:argType="com.example.reservarestaurantes.Mesas" />
     </fragment>
 </navigation>

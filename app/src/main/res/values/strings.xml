@@ -93,6 +93,15 @@
     <string name="erroEliminarCliente">Erro ao eliminar Cliente</string>
     <string name="clienteEliminadoSucesso">Cliente Eliminado com sucesso</string>
 
+    <string name="EliminarMesa">Eliminar Mesa</string>
+    <string name="EliminarMesaNr">1</string>
+    <string name="EliminarMesaLugares">4</string>
+
+
+    <string name="confirmarEliminarMesa">Tem a certeza que pretende eliminar esta Mesa?</string>
+    <string name="erroEliminarMesa">Erro ao eliminar Mesa</string>
+    <string name="mesaEliminadaSucesso">Mesa Eliminada com sucesso</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
