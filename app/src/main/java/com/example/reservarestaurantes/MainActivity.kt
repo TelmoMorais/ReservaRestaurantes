@@ -62,6 +62,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as InserirClientesFragment).processaOpcaoMenu(item)
         }else if (fragment is EliminarClienteFragment) {
             opcaoProcessada = (fragment as EliminarClienteFragment).processaOpcaoMenu(item)
+        }else if (fragment is ListaMesasFragment) {
+            opcaoProcessada = (fragment as ListaMesasFragment).processaOpcaoMenu(item)
         }else if(fragment is InserirMesasFragment){
             opcaoProcessada = (fragment as InserirMesasFragment).processaOpcaoMenu(item)
         }else {
