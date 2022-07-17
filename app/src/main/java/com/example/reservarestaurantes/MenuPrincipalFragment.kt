@@ -35,6 +35,9 @@ class MenuPrincipalFragment : Fragment() {
             findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaClientesFragment)
         }
 
+        val verReservas = MenuPrincipalFragmentDirections.actionMenuPrincipalFragmentToListaReservasFragment2()
+        findNavController().navigate(verReservas)
+
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_main

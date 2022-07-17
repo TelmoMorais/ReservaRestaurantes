@@ -4,4 +4,7 @@
     <item
         android:id="@+id/action_settings"
         android:title="@string/MenuReservaActionSettings" />
+    <item
+        android:id="@+id/action_reservas"
+        android:title="@string/ItemReservaTitulo" />
 </menu>
