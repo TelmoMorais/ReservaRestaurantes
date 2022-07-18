@@ -29,7 +29,7 @@ class ContentProviderReservas : ContentProvider() {
         requireNotNull(projection)
         val colunas = projection as Array<String>
 
-        val argsSelecao = selectionArgs as Array<String>
+        val argsSelecao = selectionArgs as Array<String>?
 
         val id = uri.lastPathSegment
 
