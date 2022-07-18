@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include
-        layout="@layout/fragment_menu_principal"
-        android:layout_width="411dp"
-        android:layout_height="891dp" />
+    <include layout="@layout/content_main"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
