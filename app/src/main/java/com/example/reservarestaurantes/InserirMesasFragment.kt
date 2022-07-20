@@ -43,6 +43,14 @@ class InserirMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         _binding = null
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val activity = requireActivity() as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual =R.menu.menu_edicao
+    }
+
     /**
      * Instantiate and return a new Loader for the given ID.
      *
