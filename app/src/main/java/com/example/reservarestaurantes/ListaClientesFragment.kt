@@ -47,6 +47,10 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         adapterClientes = AdapterClientes(this)
         binding.recyclerViewClientes.adapter = adapterClientes
         binding.recyclerViewClientes.layoutManager = LinearLayoutManager(requireContext())
+
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_lista_reservas
     }
 
     override fun onDestroyView() {

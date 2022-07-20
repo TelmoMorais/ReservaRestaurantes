@@ -46,6 +46,10 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         adapterMesas = AdapterMesas(this)
         binding.recyclerViewMesas.adapter = adapterMesas
         binding.recyclerViewMesas.layoutManager = LinearLayoutManager(requireContext())
+
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_lista_reservas
     }
 
     override fun onDestroyView() {
@@ -131,6 +135,7 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
+        if (_binding == null) return
         adapterMesas!!.cursor = null
     }
 
