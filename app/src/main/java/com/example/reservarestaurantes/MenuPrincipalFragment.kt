@@ -29,7 +29,17 @@ class MenuPrincipalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.buttonMenuReservas.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaReservasFragment2)
+        }
 
+        binding.buttonMenuClientes.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaClientesFragment)
+        }
+
+        binding.buttonMenuMesas.setOnClickListener{
+            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaMesasFragment)
+        }
 
 
         val activity = activity as MainActivity

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listaReservasFragment2_to_eliminarReservaFragment"
             app:destination="@id/eliminarReservaFragment" />
+        <action
+            android:id="@+id/action_listaReservasFragment2_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/inserirReservaFragment2"
@@ -54,6 +57,9 @@
         <action
             android:id="@+id/action_listaClientesFragment_to_eliminarClienteFragment"
             app:destination="@id/eliminarClienteFragment" />
+        <action
+            android:id="@+id/action_listaClientesFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaMesasFragment"
@@ -66,6 +72,9 @@
         <action
             android:id="@+id/action_listaMesasFragment_to_eliminarMesaFragment"
             app:destination="@id/eliminarMesaFragment" />
+        <action
+            android:id="@+id/action_listaMesasFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/inserirMesasFragment2"
@@ -113,5 +122,15 @@
         android:id="@+id/menuPrincipalFragment"
         android:name="com.example.reservarestaurantes.MenuPrincipalFragment"
         android:label="fragment_menu_principal"
-        tools:layout="@layout/fragment_menu_principal" />
+        tools:layout="@layout/fragment_menu_principal" >
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaReservasFragment2"
+            app:destination="@id/listaReservasFragment2" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaClientesFragment"
+            app:destination="@id/listaClientesFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaMesasFragment"
+            app:destination="@id/listaMesasFragment" />
+    </fragment>
 </navigation>
