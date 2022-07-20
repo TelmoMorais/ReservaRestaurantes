@@ -6,28 +6,10 @@
     app:startDestination="@id/menuPrincipalFragment">
 
     <fragment
-        android:id="@+id/menuPrincipalFragment"
-        android:name="com.example.reservarestaurantes.MenuPrincipalFragment"
-        android:label="Menu Principal"
-        tools:layout="@layout/fragment_menu_principal" >
-        <action
-            android:id="@+id/action_menuPrincipalFragment_to_listaReservasFragment2"
-            app:destination="@id/listaReservasFragment2" />
-        <action
-            android:id="@+id/action_menuPrincipalFragment_to_listaClientesFragment"
-            app:destination="@id/listaClientesFragment" />
-        <action
-            android:id="@+id/action_menuPrincipalFragment_to_listaMesasFragment"
-            app:destination="@id/listaMesasFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/listaReservasFragment2"
         android:name="com.example.reservarestaurantes.ListaReservasFragment"
         android:label="fragment_lista_reservas"
         tools:layout="@layout/fragment_lista_reservas" >
-        <action
-            android:id="@+id/action_listaReservasFragment2_to_menuPrincipalFragment2"
-            app:destination="@id/menuPrincipalFragment" />
         <action
             android:id="@+id/action_listaReservasFragment2_to_inserirReservaFragment2"
             app:destination="@id/inserirReservaFragment2" />
@@ -70,9 +52,6 @@
             android:id="@+id/action_listaClientesFragment_to_inserirClientesFragment"
             app:destination="@id/inserirClientesFragment" />
         <action
-            android:id="@+id/action_listaClientesFragment_to_menuPrincipalFragment"
-            app:destination="@id/menuPrincipalFragment" />
-        <action
             android:id="@+id/action_listaClientesFragment_to_eliminarClienteFragment"
             app:destination="@id/eliminarClienteFragment" />
     </fragment>
@@ -84,9 +63,6 @@
         <action
             android:id="@+id/action_listaMesasFragment_to_inserirMesasFragment2"
             app:destination="@id/inserirMesasFragment2" />
-        <action
-            android:id="@+id/action_listaMesasFragment_to_menuPrincipalFragment"
-            app:destination="@id/menuPrincipalFragment" />
         <action
             android:id="@+id/action_listaMesasFragment_to_eliminarMesaFragment"
             app:destination="@id/eliminarMesaFragment" />
@@ -133,4 +109,9 @@
             android:name="mesa"
             app:argType="com.example.reservarestaurantes.Mesas" />
     </fragment>
+    <fragment
+        android:id="@+id/menuPrincipalFragment"
+        android:name="com.example.reservarestaurantes.MenuPrincipalFragment"
+        android:label="fragment_menu_principal"
+        tools:layout="@layout/fragment_menu_principal" />
 </navigation>

@@ -28,15 +28,9 @@ class MenuPrincipalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonMenuReservas.setOnClickListener {
-           findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaReservasFragment2)
-        }
-        binding.buttonMenuClientes.setOnClickListener {
-            findNavController().navigate(R.id.action_menuPrincipalFragment_to_listaClientesFragment)
-        }
 
-        val verReservas = MenuPrincipalFragmentDirections.actionMenuPrincipalFragmentToListaReservasFragment2()
-        findNavController().navigate(verReservas)
+
+
 
         val activity = activity as MainActivity
         activity.fragment = this
