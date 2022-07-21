@@ -3,6 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_eliminar"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/MenuListaReservaActioneliminar"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_volta_menu"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/menuVoltaMenuPrincipal"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_inserir"
         android:icon="@drawable/icon_add"
         android:title="@string/MenuListaReservaActionInserir"
@@ -12,17 +24,5 @@
         android:icon="@android:drawable/ic_menu_edit"
         android:title="@string/MenuListaReservaActionalterar"
         android:visible="false"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_eliminar"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="@string/MenuListaReservaActioneliminar"
-        android:visible="false"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_volta_menu"
-        android:icon="@android:drawable/ic_menu_revert"
-        android:title="Item"
-        android:visible="true"
         app:showAsAction="ifRoom" />
 </menu>
