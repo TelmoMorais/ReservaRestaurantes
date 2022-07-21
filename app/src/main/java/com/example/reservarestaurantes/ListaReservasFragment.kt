@@ -155,6 +155,10 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 findNavController().navigate(R.id.action_listaReservasFragment2_to_eliminarReservaFragment)
                 true
             }
+            R.id.action_volta_menu ->{
+                findNavController().navigate(R.id.action_listaReservasFragment2_to_menuPrincipalFragment)
+                true
+            }
             else -> false
         }
 

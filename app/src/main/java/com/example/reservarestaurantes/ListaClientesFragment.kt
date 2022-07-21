@@ -159,6 +159,10 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 findNavController().navigate(R.id.action_listaClientesFragment_to_eliminarClienteFragment)
                 true
             }
+            R.id.action_volta_menu ->{
+                findNavController().navigate(R.id.action_listaClientesFragment_to_menuPrincipalFragment)
+                true
+            }
             else -> false
         }
 

@@ -156,6 +156,10 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
                 findNavController().navigate(R.id.action_listaMesasFragment_to_eliminarMesaFragment)
                 true
             }
+            R.id.action_volta_menu ->{
+                findNavController().navigate(R.id.action_listaMesasFragment_to_menuPrincipalFragment)
+                true
+            }
             else -> false
         }
 
