@@ -19,8 +19,10 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     var clienteSelecionado : Clientes? = null
         get() = field
         set(value) {
-            field = value
-            (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            }
         }
 
     private var _binding: FragmentListaClientesBinding? = null
