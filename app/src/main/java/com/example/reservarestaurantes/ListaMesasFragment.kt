@@ -19,8 +19,10 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     var mesaSelecionada : Mesas? = null
         get() = field
         set(value) {
-            field = value
+            if (value != field){
+                field = value
             (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            }
         }
 
     private var _binding: FragmentListaMesasBinding? = null
