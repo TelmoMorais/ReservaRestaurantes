@@ -18,11 +18,17 @@ class AdapterClientes(val fragment: ListaClientesFragment) : RecyclerView.Adapte
             }
         }
 
-    class ViewHolderCliente(itemCliente: View) : RecyclerView.ViewHolder(itemCliente) {
+    var viewHolderSelecionado : ViewHolderCliente? = null
+
+    inner class ViewHolderCliente(itemCliente: View) : RecyclerView.ViewHolder(itemCliente), View.OnClickListener {
         val textViewItemClienteNome = itemCliente.findViewById<TextView>(R.id.textViewItemClienteNome)
         val textViewItemClienteTelefone = itemCliente.findViewById<TextView>(R.id.textViewItemClienteTelefone)
         val textViewItemClienteNif = itemCliente.findViewById<TextView>(R.id.textViewItemClienteNif)
         val textViewItemClienteMorada = itemCliente.findViewById<TextView>(R.id.textViewItemClienteMorada)
+
+        init {
+            itemCliente.setOnClickListener(this)
+        }
 
         var cliente : Clientes? = null
             get() = field
@@ -36,6 +42,20 @@ class AdapterClientes(val fragment: ListaClientesFragment) : RecyclerView.Adapte
 
 
             }
+
+        override fun onClick(p0: View?) {
+            viewHolderSelecionado?.desseleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+            viewHolderSelecionado = this
+        }
+
+        private fun desseleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
+        }
 
 
     }
