@@ -17,9 +17,15 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
             }
         }
 
-    class ViewHolderMesa(itemMesa: View) : RecyclerView.ViewHolder(itemMesa) {
+    var viewHolderSelecionado : ViewHolderMesa? = null
+
+    inner class ViewHolderMesa(itemMesa: View) : RecyclerView.ViewHolder(itemMesa), View.OnClickListener {
         val textViewItemMesaNumeroMesa = itemMesa.findViewById<TextView>(R.id.textViewItemMesaNumeroMesa)
         val textViewItemMesaLugares = itemMesa.findViewById<TextView>(R.id.textViewItemMesaLugares)
+
+        init {
+            itemMesa.setOnClickListener(this)
+        }
 
         var mesa : Mesas? = null
             get() = field
@@ -29,6 +35,20 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
                 textViewItemMesaNumeroMesa.text = "${mesa?.numero_mesa}"
                 textViewItemMesaLugares.text = "${mesa?.quantidade_lugares}"
             }
+
+        override fun onClick(p0: View?) {
+            viewHolderSelecionado?.desseleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+            viewHolderSelecionado = this
+        }
+
+        private fun desseleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
+        }
 
     }
 
@@ -57,7 +77,7 @@ class AdapterMesas (val fragment: ListaMesasFragment) : RecyclerView.Adapter<Ada
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMesa {
         val itemMesa = fragment.layoutInflater.inflate(R.layout.item_mesas, parent, false)
-        return AdapterMesas.ViewHolderMesa(itemMesa)
+        return ViewHolderMesa(itemMesa)
     }
 
     /**
