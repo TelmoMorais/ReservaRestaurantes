@@ -45,10 +45,10 @@
         android:id="@+id/buttonMenuRefeicoes"
         android:layout_width="152dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginEnd="128dp"
         android:text="@string/ItemRefeicaoTitulo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonMenuReservas"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintVertical_bias="0.225" />
 </androidx.constraintlayout.widget.ConstraintLayout>
