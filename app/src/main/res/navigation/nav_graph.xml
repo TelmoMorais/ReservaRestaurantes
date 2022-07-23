@@ -132,5 +132,17 @@
         <action
             android:id="@+id/action_menuPrincipalFragment_to_listaMesasFragment"
             app:destination="@id/listaMesasFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaRefeicaoFragment"
+            app:destination="@id/listaRefeicaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaRefeicaoFragment"
+        android:name="com.example.reservarestaurantes.ListaRefeicaoFragment"
+        android:label="fragment_lista_refeicao"
+        tools:layout="@layout/fragment_lista_refeicao" >
+        <action
+            android:id="@+id/action_listaRefeicaoFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
     </fragment>
 </navigation>
