@@ -140,28 +140,28 @@ class ListaRefeicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         adapterRefeicoes!!.cursor = null
     }
 
-//    fun processaOpcaoMenu(item: MenuItem): Boolean =
-//
-//        when(item.itemId){
-//            R.id.action_inserir -> {
-//                findNavController().navigate(R.id.action_listaClientesFragment_to_inserirClientesFragment)
-//                true
-//            }
-//            R.id.action_alterar ->{
-//                val acao = ListaClientesFragmentDirections.actionListaClientesFragmentToInserirClientesFragment()
-//                findNavController().navigate(acao)
-//                true
-//            }
+    fun processaOpcaoMenu(item: MenuItem): Boolean =
+
+        when(item.itemId){
+            R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_listaRefeicaoFragment_to_inserirRefeicaoFragment)
+                true
+            }
+            R.id.action_alterar ->{
+                val acao = ListaRefeicaoFragmentDirections.actionListaRefeicaoFragmentToInserirRefeicaoFragment()
+                findNavController().navigate(acao)
+                true
+            }
 //            R.id.action_eliminar -> {
 //                findNavController().navigate(R.id.action_listaClientesFragment_to_eliminarClienteFragment)
 //                true
 //            }
-//            R.id.action_volta_menu ->{
-//                findNavController().navigate(R.id.action_listaClientesFragment_to_menuPrincipalFragment)
-//                true
-//            }
-//            else -> false
-//        }
+            R.id.action_volta_menu ->{
+                findNavController().navigate(R.id.action_listaRefeicaoFragment_to_menuPrincipalFragment)
+                true
+            }
+            else -> false
+        }
 
     companion object {
         const val ID_LOADER_CLIENTES = 0

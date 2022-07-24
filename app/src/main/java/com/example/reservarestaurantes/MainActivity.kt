@@ -66,6 +66,12 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as ListaMesasFragment).processaOpcaoMenu(item)
         }else if(fragment is InserirMesasFragment){
             opcaoProcessada = (fragment as InserirMesasFragment).processaOpcaoMenu(item)
+        }else if(fragment is EliminarMesaFragment){
+            opcaoProcessada = (fragment as EliminarMesaFragment).processaOpcaoMenu(item)
+        }else if(fragment is ListaRefeicaoFragment){
+            opcaoProcessada = (fragment as ListaRefeicaoFragment).processaOpcaoMenu(item)
+        }else if(fragment is InserirRefeicaoFragment){
+            opcaoProcessada = (fragment as InserirRefeicaoFragment).processaOpcaoMenu(item)
         }else {
             opcaoProcessada = false
         }
