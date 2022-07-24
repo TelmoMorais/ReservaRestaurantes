@@ -88,6 +88,15 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
                 null,
                 "${TabelaBDMesas.CAMPO_NUMERO_MESA}"
             )
+        }else if (id == ID_LOADER_REFEICOES){
+            loader = CursorLoader(
+                requireContext(),
+                ContentProviderReservas.ENDERECO_REFEICOES,
+                TabelaBDRefeicao.TODOS_CAMPOS_REFEICAO,
+                null,
+                null,
+                "${TabelaBDRefeicao.CAMPO_TIPO_REFEICAO}"
+            )
         }
         return loader as CursorLoader
     }
@@ -164,6 +173,17 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             )
 
             binding.spinnerMesaReserva.adapter = adapterMesas
+        } else if (loader.id == ID_LOADER_REFEICOES){
+            val adapterRefeicao = SimpleCursorAdapter(
+                requireContext(),
+                android.R.layout.simple_list_item_1,
+                data,
+                arrayOf(TabelaBDRefeicao.CAMPO_TIPO_REFEICAO),
+                intArrayOf(android.R.id.text1),
+                0
+            )
+
+            binding.spinnerRefeicaoReserva.adapter = adapterRefeicao
         }
 
 
@@ -184,6 +204,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
         binding.spinnerClienteReserva.adapter = null
         binding.spinnerMesaReserva.adapter = null
+        binding.spinnerRefeicaoReserva.adapter = null
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
