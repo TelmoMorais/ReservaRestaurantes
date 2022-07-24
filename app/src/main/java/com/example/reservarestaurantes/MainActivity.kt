@@ -72,6 +72,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as ListaRefeicaoFragment).processaOpcaoMenu(item)
         }else if(fragment is InserirRefeicaoFragment){
             opcaoProcessada = (fragment as InserirRefeicaoFragment).processaOpcaoMenu(item)
+        }else if(fragment is EliminarRefeicaoFragment){
+            opcaoProcessada = (fragment as EliminarRefeicaoFragment).processaOpcaoMenu(item)
         }else {
             opcaoProcessada = false
         }

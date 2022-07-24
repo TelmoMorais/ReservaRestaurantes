@@ -147,6 +147,9 @@
         <action
             android:id="@+id/action_listaRefeicaoFragment_to_inserirRefeicaoFragment"
             app:destination="@id/inserirRefeicaoFragment" />
+        <action
+            android:id="@+id/action_listaRefeicaoFragment_to_eliminarRefeicaoFragment"
+            app:destination="@id/eliminarRefeicaoFragment" />
     </fragment>
     <fragment
         android:id="@+id/inserirRefeicaoFragment"
@@ -156,5 +159,17 @@
         <action
             android:id="@+id/action_inserirRefeicaoFragment_to_listaRefeicaoFragment"
             app:destination="@id/listaRefeicaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarRefeicaoFragment"
+        android:name="com.example.reservarestaurantes.EliminarRefeicaoFragment"
+        android:label="fragment_eliminar_refeicao"
+        tools:layout="@layout/fragment_eliminar_refeicao" >
+        <action
+            android:id="@+id/action_eliminarRefeicaoFragment_to_listaRefeicaoFragment"
+            app:destination="@id/listaRefeicaoFragment" />
+        <argument
+            android:name="refeicao"
+            app:argType="com.example.reservarestaurantes.Refeicao" />
     </fragment>
 </navigation>

@@ -152,10 +152,10 @@ class ListaRefeicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 findNavController().navigate(acao)
                 true
             }
-//            R.id.action_eliminar -> {
-//                findNavController().navigate(R.id.action_listaClientesFragment_to_eliminarClienteFragment)
-//                true
-//            }
+            R.id.action_eliminar -> {
+                findNavController().navigate(R.id.action_listaRefeicaoFragment_to_eliminarRefeicaoFragment)
+                true
+            }
             R.id.action_volta_menu ->{
                 findNavController().navigate(R.id.action_listaRefeicaoFragment_to_menuPrincipalFragment)
                 true

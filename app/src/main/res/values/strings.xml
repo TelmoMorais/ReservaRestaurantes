@@ -114,6 +114,15 @@
     <string name="erroGuardarRefeicao">Erro ao Guardar Refeição</string>
     <string name="reservaGuardadoSucesso">Reserva Guardada com sucesso</string>
 
+    <string name="textViewEliminarRefeicaoTitulo">Eliminar Refeição</string>
+    <string name="textViewEliminarTipoRefeicao">Refeição</string>
+    <string name="textViewEliminarRefeicao">Almoço</string>
+    
+    <string name="EliminarRefeicao">Eliminar Refeição</string>
+    <string name="confirmarEliminarRefeicao">Tem a certeza que pretende Eliminar esta refeição?</string>
+    <string name="erroEliminarRefeicao">Erro ao eliminar Refeição</string>
+    <string name="sucessoEliminarRefeicao">Refeição Eliminada com Sucesso</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
