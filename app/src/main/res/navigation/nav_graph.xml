@@ -144,5 +144,17 @@
         <action
             android:id="@+id/action_listaRefeicaoFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_listaRefeicaoFragment_to_inserirRefeicaoFragment"
+            app:destination="@id/inserirRefeicaoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inserirRefeicaoFragment"
+        android:name="com.example.reservarestaurantes.InserirRefeicaoFragment"
+        android:label="fragment_inserir_refeicao"
+        tools:layout="@layout/fragment_inserir_refeicao" >
+        <action
+            android:id="@+id/action_inserirRefeicaoFragment_to_listaRefeicaoFragment"
+            app:destination="@id/listaRefeicaoFragment" />
     </fragment>
 </navigation>
