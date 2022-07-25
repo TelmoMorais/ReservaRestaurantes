@@ -22,7 +22,7 @@ class EliminarReservaFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private lateinit var reserva: Reservas
+    private lateinit var reservas: Reservas
 
 
     override fun onCreateView(
@@ -45,13 +45,13 @@ class EliminarReservaFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        reserva = EliminarReservaFragmentArgs.fromBundle(requireArguments()).reserva
+        reservas = EliminarReservaFragmentArgs.fromBundle(requireArguments()).reserva
 
-        binding.textViewEliminarDataReserva.text = reserva.data_reserva.toString()
-        binding.textViewEliminarNrPessoasReserva.text = reserva.numero_pessoas.toString()
-        binding.textViewEliminarClienteReserva.text = reserva.clientes_id.toString()
-        binding.textViewEliminarMesaReserva.text = reserva.mesas_id.toString()
-        binding.textViewEliminarRefeicaoReserva.text = reserva.refeicao_id.toString()
+        binding.textViewEliminarDataReserva.text = reservas.data_reserva.toString()
+        binding.textViewEliminarNrPessoasReserva.text = reservas.numero_pessoas.toString()
+        binding.textViewEliminarClienteReserva.text = reservas.clientes_id.toString()
+        binding.textViewEliminarMesaReserva.text = reservas.mesas_id.toString()
+        binding.textViewEliminarRefeicaoReserva.text = reservas.refeicao_id.toString()
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -81,7 +81,7 @@ class EliminarReservaFragment : Fragment() {
 
     private fun confirmaEliminarReserva() {
 
-        val enderecoReserva = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_RESERVAS, "${reserva.id}")
+        val enderecoReserva = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_RESERVAS, "${reservas.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoReserva, null, null)
 
         if (registosEliminados != 1){

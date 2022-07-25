@@ -21,7 +21,7 @@ class EliminarMesaFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private lateinit var mesa: Mesas
+    private lateinit var mesas: Mesas
 
 
     override fun onCreateView(
@@ -29,7 +29,7 @@ class EliminarMesaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEliminarMesaBinding.inflate(inflater,container,false)
-        return inflater.inflate(R.layout.fragment_eliminar_mesa, container, false)
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -44,10 +44,10 @@ class EliminarMesaFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        mesa = EliminarMesaFragmentArgs.fromBundle(requireArguments()).mesa
+        mesas = EliminarMesaFragmentArgs.fromBundle(arguments!!).mesa
 
-        binding.textViewEliminarNrMesa.text = mesa.numero_mesa.toString()
-        binding.textViewEliminarLugaresMesa.text = mesa.quantidade_lugares.toString()
+        binding.textViewEliminarNrMesa.text = mesas.numero_mesa.toString()
+        binding.textViewEliminarLugaresMesa.text = mesas.quantidade_lugares.toString()
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -77,7 +77,7 @@ class EliminarMesaFragment : Fragment() {
     }
 
     private fun confirmaEliminarMesa(){
-        val enderecoMesa = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_MESAS, "${mesa.id}")
+        val enderecoMesa = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_MESAS, "${mesas.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoMesa,null,null)
 
         if (registosEliminados != 1){

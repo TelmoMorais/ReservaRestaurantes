@@ -29,7 +29,7 @@ class EliminarRefeicaoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEliminarRefeicaoBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_eliminar_refeicao, container, false)
+        return binding.root
 
     }
 
@@ -45,7 +45,7 @@ class EliminarRefeicaoFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        refeicao = EliminarRefeicaoFragmentArgs.fromBundle(requireArguments()).refeicao
+        refeicao = EliminarRefeicaoFragmentArgs.fromBundle(arguments!!).refeicao
 
         binding.textViewEliminarRefeicao.text = refeicao.tipo_refeicao
     }

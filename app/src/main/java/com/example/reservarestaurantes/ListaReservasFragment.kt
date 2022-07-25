@@ -152,7 +152,8 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 true
             }
             R.id.action_eliminar ->{
-                findNavController().navigate(R.id.action_listaReservasFragment2_to_eliminarReservaFragment)
+                val acao = ListaReservasFragmentDirections.actionListaReservasFragment2ToEliminarReservaFragment(reservaSelecionada!!)
+                findNavController().navigate(acao)
                 true
             }
             R.id.action_volta_menu ->{

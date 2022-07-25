@@ -153,7 +153,8 @@ class ListaMesasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
                 true
             }
             R.id.action_eliminar ->{
-                findNavController().navigate(R.id.action_listaMesasFragment_to_eliminarMesaFragment)
+                val acao = ListaMesasFragmentDirections.actionListaMesasFragmentToEliminarMesaFragment(mesaSelecionada!!)
+                findNavController().navigate(acao)
                 true
             }
             R.id.action_volta_menu ->{

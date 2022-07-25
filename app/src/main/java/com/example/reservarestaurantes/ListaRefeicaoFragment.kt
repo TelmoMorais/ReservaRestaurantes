@@ -153,7 +153,8 @@ class ListaRefeicaoFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 true
             }
             R.id.action_eliminar -> {
-                findNavController().navigate(R.id.action_listaRefeicaoFragment_to_eliminarRefeicaoFragment)
+                val acao = ListaRefeicaoFragmentDirections.actionListaRefeicaoFragmentToEliminarRefeicaoFragment(refeicaoSelecionada!!)
+                findNavController().navigate(acao)
                 true
             }
             R.id.action_volta_menu ->{

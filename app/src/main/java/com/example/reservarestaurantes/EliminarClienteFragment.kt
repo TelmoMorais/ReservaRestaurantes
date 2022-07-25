@@ -21,14 +21,14 @@ class EliminarClienteFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private lateinit var cliente: Clientes
+    private lateinit var clientes: Clientes
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEliminarClienteBinding.inflate(inflater,container,false)
-        return inflater.inflate(R.layout.fragment_eliminar_cliente, container, false)
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -43,12 +43,12 @@ class EliminarClienteFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
 
-        cliente = EliminarClienteFragmentArgs.fromBundle(requireArguments()).cliente
+        clientes = EliminarClienteFragmentArgs.fromBundle(arguments!!).cliente
 
-        binding.textViewEliminarNomeCliente.text = cliente.nome
-        binding.textViewEliminarTelefoneCliente.text = cliente.contato_telefonico
-        binding.textViewEliminarNifCliente.text = cliente.nif
-        binding.textViewEliminarMoradaCliente.text = cliente.morada
+        binding.textViewEliminarNomeCliente.text = clientes.nome
+        binding.textViewEliminarTelefoneCliente.text = clientes.contato_telefonico
+        binding.textViewEliminarNifCliente.text = clientes.nif
+        binding.textViewEliminarMoradaCliente.text = clientes.morada
     }
 
     fun processaOpcaoMenu(item: MenuItem) : Boolean =
@@ -78,7 +78,7 @@ class EliminarClienteFragment : Fragment() {
 
     private fun confirmaEliminarCliente(){
 
-        val enderecoCliente = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_CLIENTES, "${cliente.id}")
+        val enderecoCliente = Uri.withAppendedPath(ContentProviderReservas.ENDERECO_CLIENTES, "${clientes.id}")
         val registosEliminados = requireActivity().contentResolver.delete(enderecoCliente, null, null)
 
         if (registosEliminados != 1){

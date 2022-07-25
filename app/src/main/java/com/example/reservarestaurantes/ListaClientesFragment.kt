@@ -156,7 +156,8 @@ class ListaClientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 true
             }
             R.id.action_eliminar -> {
-                findNavController().navigate(R.id.action_listaClientesFragment_to_eliminarClienteFragment)
+                val acao = ListaClientesFragmentDirections.actionListaClientesFragmentToEliminarClienteFragment(clienteSelecionado!!)
+                findNavController().navigate(acao)
                 true
             }
             R.id.action_volta_menu ->{
