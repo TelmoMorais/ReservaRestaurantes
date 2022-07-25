@@ -19,8 +19,10 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     var reservaSelecionada : Reservas? = null
         get() = field
         set(value) {
-            field = value
-            (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).mostraOpcoesAlterarEliminar(field != null)
+            }
 
         }
 
@@ -147,7 +149,7 @@ class ListaReservasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
                 true
             }
             R.id.action_alterar -> {
-                val acao = ListaReservasFragmentDirections.actionListaReservasFragment2ToInserirReservaFragment2(reservaSelecionada)
+                val acao = ListaReservasFragmentDirections.actionListaReservasFragment2ToInserirReservaFragment2()
                 findNavController().navigate(acao)
                 true
             }
