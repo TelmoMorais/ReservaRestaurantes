@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
 
 class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapter<AdapterReservas.ViewHolderReserva>() {
 
@@ -37,7 +38,11 @@ class AdapterReservas(val fragment: ListaReservasFragment) : RecyclerView.Adapte
             set(value: Reservas?) {
                 field = value
 
-                textViewItemReservaData.text = "${reserva?.data_reserva}"
+                //textViewItemReservaData.text = "${reserva?.data_reserva}"
+                val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+                val dataReserva = reserva?.data_reserva
+                val data = dateFormat.format(dataReserva)
+                textViewItemReservaData.text = data
                 textViewItemReservaNrPessoas.text = "${reserva?.numero_pessoas}"
                 textViewItemReservaCliente.text = "${reserva?.clientes_id}"
                 textViewItemReservaMesa.text = "${reserva?.mesas_id}"

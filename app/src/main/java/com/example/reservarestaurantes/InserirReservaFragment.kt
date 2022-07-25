@@ -16,6 +16,8 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.databinding.FragmentInserirReservaBinding
 import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
@@ -24,8 +26,10 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     private val binding get() =_binding!!
 
     private var loader: CursorLoader? = null
+    private var reservas : Reservas? = null
 
-
+    var dataReserva: Long = 0L
+    var data: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +54,38 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual =R.menu.menu_edicao
+
+        if(reservas != null){
+
+            val getData = reservas!!.data_reserva
+            val dateFormat= SimpleDateFormat("dd/MM/yyyy")
+            val dataFormatada = dateFormat.format(getData)
+            val dateSplit = dataFormatada.split("/")
+            val ano = dateSplit[2]
+            val mes = dateSplit[1]
+            val dia = dateSplit[0]
+            val currentDate = Calendar.getInstance()
+            binding.datePickerDataReserva.init(
+                ano.toInt(),
+                mes.toInt() - 1,
+                dia.toInt()
+            ){view, ano, mes, dia ->
+                currentDate.set(ano,mes,dia)
+                dataReserva = currentDate.timeInMillis
+            }
+        }else{
+            val picker = binding.datePickerDataReserva
+            val currentDate = Calendar.getInstance()
+
+            picker.init(
+                currentDate.get(Calendar.YEAR),
+                currentDate.get(Calendar.MONTH),
+                currentDate.get(Calendar.DAY_OF_MONTH)
+            ){view, ano, mes, dia ->
+                currentDate.set(ano,mes,dia)
+                dataReserva = currentDate.timeInMillis}
+        }
+
     }
 
 
@@ -221,12 +257,6 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         }
 
     private fun guardar(){
-        val data =binding.editTextDataReserva.text.toString()
-        if(data.isBlank()){
-            binding.editTextDataReserva.error = getString(R.string.dataReservaObrigatorio)
-            binding.editTextDataReserva.requestFocus()
-            return
-        }
 
         val nrPessoas = binding.editTextNrPessoasReserva.text.toString()
         if(nrPessoas.isBlank()){
@@ -256,7 +286,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return
         }
 
-        insereReserva(data.toLong(), nrPessoas.toInt(), idCliente, idMesa, idRefeicao)
+        insereReserva(dataReserva, nrPessoas.toInt(), idCliente, idMesa, idRefeicao)
     }
 
 
@@ -266,7 +296,7 @@ class InserirReservaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         val enderecoReservaInserida = requireActivity().contentResolver.insert(ContentProviderReservas.ENDERECO_RESERVAS, reserva.toContentValues())
 
         if(enderecoReservaInserida == null){
-            Snackbar.make(binding.editTextDataReserva, R.string.erroGuardarReserva, Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(binding.datePickerDataReserva, R.string.erroGuardarReserva, Snackbar.LENGTH_INDEFINITE).show()
             return
         }
 
